@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.SettingsView">
+	<Grid RowDefinitions="*,Auto">
+		<!-- Основная область настроек -->
+		<ScrollViewer Grid.Row="0" Margin="0,0,0,10">
+			<StackPanel Spacing="15" Margin="20,10">
+				<!-- Заголовок настроек -->
+				<TextBlock Text="Настройки приложения" FontSize="18" FontWeight="Bold"/>
+
+				<!-- Раздел внешнего вида -->
+				<StackPanel Spacing="8">
+					<TextBlock Text="Внешний вид" FontSize="14" FontWeight="SemiBold"/>
+
+					<!-- Настройка темы в формате "имя слева - значение справа" -->
+					<Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
+						<TextBlock Text="Тема:" VerticalAlignment="Center"/>
+						<ComboBox Grid.Column="1"
+                                 SelectedIndex="{Binding SelectedThemeIndex}"
+                                 MinWidth="150" HorizontalAlignment="Right">
+							<ComboBoxItem Content="Системная"/>
+							<ComboBoxItem Content="Светлая"/>
+							<ComboBoxItem Content="Тёмная"/>
+						</ComboBox>
+					</Grid>
+
+					<!-- Другие настройки могут быть добавлены в том же формате -->
+
+				</StackPanel>
+			</StackPanel>
+		</ScrollViewer>
+
+		<!-- Панель кнопок внизу -->
+		<Border Grid.Row="1" 
+                BorderBrush="{DynamicResource ThemeBorderBrush}" BorderThickness="0,1,0,0"
+                Padding="10" HorizontalAlignment="Stretch">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Content="Сохранить" Command="{Binding SaveCommand}"/>
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

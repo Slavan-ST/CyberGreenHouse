@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberGreenHouse", "CyberGreenHouse\CyberGreenHouse.csproj", "{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberGreenHouse.Android", "CyberGreenHouse.Android\CyberGreenHouse.Android.csproj", "{7EE86642-1F2E-42A5-8B29-BDF61044A399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberGreenHouse.Desktop", "CyberGreenHouse.Desktop\CyberGreenHouse.Desktop.csproj", "{EF338CBB-DAF6-4133-B294-E60CC2B2F790}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EF338CBB-DAF6-4133-B294-E60CC2B2F790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF338CBB-DAF6-4133-B294-E60CC2B2F790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF338CBB-DAF6-4133-B294-E60CC2B2F790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF338CBB-DAF6-4133-B294-E60CC2B2F790}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

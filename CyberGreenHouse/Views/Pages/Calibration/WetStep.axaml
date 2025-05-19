@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="550"
+             x:Class="CyberGreenHouse.Views.Pages.Calibration.WetStep">
+	<StackPanel DockPanel.Dock="Top"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Margin="20">
+		<Image Source="/Assets/wet-step.png"
+			   HorizontalAlignment="Center"
+			   Margin="0,0,0,20"/>
+
+		<ScrollViewer MaxHeight="300"
+					  MaxWidth="350"
+					  VerticalScrollBarVisibility="Auto"
+					  HorizontalScrollBarVisibility="Disabled">
+			<TextBlock Text="Это следущий этап калибровки, необходимо дождаться обновления текста на дисплее, пример нового текста на изображении.
+
+Когда текст обновиться, необходимо не спеша опустить все датчики в емкость с водой.
+
+На датчиках есть белая линия, датчики опускайте чтобы уровень воды не доходил до этой линии с запасом 3-4 мм.
+
+Не допускайте намокания датчика выше этой линии, в случаи еси такое произошло не замедлительно отключите от сети плату управления и датчик от платы, вновь просушите датчик и оставьте на 1-2 часа, после откройте приложение заново и возобновите процесс калибровки.
+
+В момент ожидания пропусши датчика не допускается использования платы управления в обычном режиме.
+
+После опускания в воду датчиков, не вынимая их из воды нажмите кнопку 'Далее' для завершения калибровки."
+					   TextWrapping="Wrap"
+					   TextAlignment="Center"/>
+		</ScrollViewer>
+	</StackPanel>
+</UserControl>

@@ -1,0 +1,83 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CyberGreenHouse.ViewModels"
+             xmlns:views="clr-namespace:CyberGreenHouse.Views"
+             xmlns:converters="clr-namespace:CyberGreenHouse.Converters"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.MainView"
+             x:DataType="vm:MainViewModel"
+			 x:Name="rootView">
+
+  <Design.DataContext>
+    <vm:MainViewModel />
+  </Design.DataContext>
+
+  <UserControl.Resources>
+    <converters:BoolToNegatedDoubleConverter x:Key="MenuConverter"/>
+    <converters:BoolToDoubleConverter  x:Key="OpacityConverter" TrueValue="0.5" FalseValue="0"/>
+  </UserControl.Resources>
+
+  <Grid RowDefinitions="Auto,*">
+    <!-- Фиксированная шапка -->
+    <Border Grid.Row="0"  Height="50">
+      <DockPanel VerticalAlignment="Center" LastChildFill="True">
+        <Button Width="40" Height="40" Margin="5" Background="Transparent"
+                Command="{Binding ToggleMenuCommand}">
+          <PathIcon Data="M3,5H21V7H3V5M3,11H21V13H3V11M3,17H21V19H3V17Z"/>
+        </Button>
+        <TextBlock Text="{Binding Title}" HorizontalAlignment="Right"
+                  VerticalAlignment="Center" FontSize="16" Margin="20, 0"/>
+      </DockPanel>
+    </Border>
+
+    <!-- Основная область -->
+    <Grid Grid.Row="1">
+      <!-- Бургер-меню -->
+      <Border Width="250" Background="{DynamicResource BurgerBackground}"
+              HorizontalAlignment="Left"
+              RenderTransformOrigin="0,0.5"
+              ZIndex="2">
+        <Border.RenderTransform>
+          <TranslateTransform X="{Binding IsMenuOpen, 
+                                  Converter={StaticResource MenuConverter}, 
+                                  ConverterParameter=250}">
+            <TranslateTransform.Transitions>
+              <Transitions>
+                <DoubleTransition Property="X" Duration="0:0:0.3"/>
+              </Transitions>
+            </TranslateTransform.Transitions>
+          </TranslateTransform>
+        </Border.RenderTransform>
+        <views:BurgerMenu/>
+      </Border>
+
+      <!-- Контентная область -->
+      <Grid>
+		  <ContentControl Content="{Binding CurrentView}" Opacity="{Binding ContentOpacity}">
+			  <ContentControl.Transitions>
+				  <Transitions>
+					  <DoubleTransition Property="Opacity" Duration="0:0:0.5"/>
+				  </Transitions>
+			  </ContentControl.Transitions>
+		  </ContentControl>
+        
+        <!-- Затемнение -->
+	
+            <Rectangle Fill="#80000000"
+                       IsHitTestVisible="{Binding IsMenuOpen}"
+                       ZIndex="1"
+                       PointerPressed="Rectangle_PointerPressed"
+                       Opacity="{Binding IsMenuOpen, Converter={StaticResource OpacityConverter}}">
+                <Rectangle.Transitions>
+                    <Transitions>
+                        <DoubleTransition Property="Opacity" Duration="0:0:0.3"/>
+                    </Transitions>
+                </Rectangle.Transitions>
+            </Rectangle>
+	
+        </Grid>
+    </Grid>
+  </Grid>
+</UserControl>

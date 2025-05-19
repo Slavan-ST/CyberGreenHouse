@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.Calibration.FinishStep">
+	<StackPanel DockPanel.Dock="Top"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Margin="20">
+
+		<ScrollViewer MaxHeight="200"
+					  MaxWidth="350"
+					  VerticalScrollBarVisibility="Auto"
+					  HorizontalScrollBarVisibility="Disabled">
+			<TextBlock Text="Поздравляем! Вы завершили калибровку датчиков влажности почвы.  
+
+В течение 5 минут управление перейдёт в штатный режим, и можно будет использовать систему как обычно."
+					   TextWrapping="Wrap"
+					   TextAlignment="Center"/>
+		</ScrollViewer>
+	</StackPanel>
+</UserControl>

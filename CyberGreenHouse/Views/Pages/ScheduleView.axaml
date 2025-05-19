@@ -1,0 +1,93 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:anims="clr-namespace:CyberGreenHouse.Animators"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.ScheduleView"
+			 x:Name="_thisView">
+	<UserControl.Styles>
+		<Style Selector="TimePicker.short ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Padding" Value="3"/>
+		</Style>
+		<Style Selector="TimePicker.short Button#PART_FlyoutButton">
+
+			<Setter Property="MinWidth" Value="0"/>
+		</Style>		
+		<Style Selector="TimePicker.short TextBlock">
+			<Setter Property="Padding" Value="2,5"/>
+		</Style>
+		<Style Selector="TimePicker.short Popup#PART_Popup">
+			<Setter Property="PlacementTarget" Value="{Binding #_thisView}"/>
+			<Style.Animations>
+				<Animation Duration="0:0:1" IterationCount="INFINITE">
+					<KeyFrame Cue="0%">
+						<Setter Property="VerticalOffset" Value="0"/>
+						<Setter Property="HorizontalOffset" Value="0"/>
+						<Setter Property="Placement" Value="Center">
+							<Animation.Animator>
+								<anims:PlacementAnimator/>
+							</Animation.Animator>
+						</Setter>
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="VerticalOffset" Value="0"/>
+						<Setter Property="HorizontalOffset" Value="0"/>
+						<Setter Property="Placement" Value="Center">
+							<Animation.Animator>
+								<anims:PlacementAnimator/>
+							</Animation.Animator>
+						</Setter>
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+		<Style Selector="ToggleButton">
+			<Setter Property="Content" Value="Выключено"/>
+			<Setter Property="Background" Value="Red"/>
+		</Style>
+		<Style Selector="ToggleButton:checked">
+			<Setter Property="Content" Value="Активно"/>
+			<Setter Property="Background" Value="Green"/>
+		</Style>
+
+		<Style Selector="ToggleButton:checked > ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="Green"/>
+		</Style>
+		
+	</UserControl.Styles>
+	<ItemsControl ItemsSource="{Binding Schedules}" Margin="5">
+		<ItemsControl.ItemTemplate>
+			<DataTemplate>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="0.1*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<StackPanel Orientation="Vertical" Margin="5" Spacing="5">
+						<TextBox Text="{Binding SomeTextProperty}"/>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="0.5*"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<TimePicker Grid.Column="0" HorizontalAlignment="Stretch"
+									   SelectedTime="{Binding StartTime}" Classes="short"/>
+							<TextBlock Grid.Column="1" Text="-" FontSize="36" HorizontalAlignment="Center"/>
+							<TimePicker Grid.Column="2" HorizontalAlignment="Stretch"
+									   SelectedTime="{Binding EndTime}" Classes="short"/>
+						</Grid>
+					</StackPanel>
+					<Grid Grid.Column="2" VerticalAlignment="Top">
+						<ToggleButton 
+				   		    IsChecked="{Binding IsActive}"
+						    HorizontalContentAlignment="Center"
+						    HorizontalAlignment="Stretch"/>
+					</Grid>
+				</Grid>
+			</DataTemplate>
+		</ItemsControl.ItemTemplate>
+	</ItemsControl>
+</UserControl>

@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.Calibration.DryStep">
+	<StackPanel DockPanel.Dock="Top"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Margin="20">
+
+		<Image Source="/Assets/dry-step.png"
+			   HorizontalAlignment="Center"
+			   Margin="0,0,0,20"/>
+
+		<ScrollViewer MaxHeight="300"
+					  MaxWidth="350"
+					  VerticalScrollBarVisibility="Auto"
+					  HorizontalScrollBarVisibility="Disabled">
+			<TextBlock Text="Вы перешли в режим калибровки датчиков. Ожидайте, сейчас на дисплее появится текст, как на изображении (обычно это занимает не больше минуты).
+
+После того как появится текст, просушите датчики влажности почвы и расположите их в сухом месте.
+
+Когда датчики будут подготовлены, нажмите кнопку «Далее» на экране телефона."
+					   TextWrapping="Wrap"
+					   TextAlignment="Center"/>
+		</ScrollViewer>
+	</StackPanel>
+</UserControl>

@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "author": "ТЫЖ ПРОГРАММИСТ",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -76.8, "left": 43.24, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": -70.4,
+      "left": 207.2,
+      "attrs": { "pins": "i2c", "background": "blue", "color": "white" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -249.3, "left": 81, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 181.1, "left": 201.4, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": 181.1, "left": 307, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot3", "top": 181.1, "left": 412.6, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": 144,
+      "left": 211.2,
+      "attrs": { "text": "Вход 1\n" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": 144,
+      "left": 422.4,
+      "attrs": { "text": "Вход 2\n" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": 144,
+      "left": 316.8,
+      "attrs": { "text": "Центр" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": 115.2,
+      "left": 201.6,
+      "attrs": { "text": "Датчики влажности почвы (аналоговые)" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -166.8,
+      "left": 253.4,
+      "attrs": { "color": "green", "flip": "1" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text5",
+      "top": -201.6,
+      "left": 172.8,
+      "attrs": { "text": "Управление краном" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "v-4.49", "h-9.6", "v23.89" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-9.6", "v-9.6" ] ],
+    [ "lcd1:SCL", "esp:22", "purple", [ "h-48", "v-18.9" ] ],
+    [ "esp:GND.2", "dht1:GND", "black", [ "v0" ] ],
+    [ "esp:5V", "lcd1:VCC", "red", [ "h-19.05", "v19.2", "h163.2", "v-172.9" ] ],
+    [ "dht1:VCC", "esp:5V", "red", [ "h-57.6", "v86.4" ] ],
+    [ "dht1:SDA", "esp:26", "green", [ "v9.6", "h-76.7", "v163.2" ] ],
+    [ "esp:GND.2", "pot3:GND", "black", [ "v0", "h9.6", "v316.8", "h288" ] ],
+    [ "esp:GND.2", "pot2:GND", "black", [ "v0", "h9.6", "v316.8", "h182.4" ] ],
+    [ "esp:GND.2", "pot1:GND", "black", [ "v0", "h9.6", "v316.8", "h76.8" ] ],
+    [ "esp:3V3", "pot1:VCC", "red", [ "h-38.25", "v326.4", "h240" ] ],
+    [ "esp:3V3", "pot2:VCC", "red", [ "h-38.25", "v326.4", "h345.6" ] ],
+    [ "esp:3V3", "pot3:VCC", "red", [ "h-38.25", "v326.4", "h451.2" ] ],
+    [ "esp:VP", "pot1:SIG", "orange", [ "h-47.85", "v316.8", "h240" ] ],
+    [ "esp:VN", "pot2:SIG", "green", [ "h-57.45", "v316.8", "h355.2" ] ],
+    [ "esp:34", "pot3:SIG", "blue", [ "h-67.05", "v316.8", "h470.4" ] ],
+    [ "esp:16", "led2:A", "violet", [ "h38.4", "v-172.8", "h86" ] ],
+    [ "esp:GND.2", "led2:C", "black", [ "v-57.6", "h134.4" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,55 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:CyberGreenHouse.ViewModels.PageViewModels"
+			 xmlns:cv="clr-namespace:CyberGreenHouse.Converters"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.HomeView">
+	<Design.DataContext>
+		<vm:HomeViewModel />
+	</Design.DataContext>
+	<StackPanel Margin="5">
+		<Grid Margin="5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+
+			<TextBlock Grid.Row="0" Grid.Column="0" Text="Температура:" Margin="5"/>
+			<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SensorData.Temperature}" Margin="5"/>
+
+			<TextBlock Grid.Row="1" Grid.Column="0" Text="Влажность воздуха:" Margin="5"/>
+			<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SensorData.AirHumidity}" Margin="5"/>
+
+			<TextBlock Grid.Row="2" Grid.Column="0" Text="Влажность почвы:" Margin="5"/>
+			<TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SensorData.SoilHumidity}" Margin="5"/>
+		</Grid>
+
+		<TextBlock Text="{Binding SensorData.LastUpdate, StringFormat='Обновлено: {0:dd.MM.yyyy HH:mm:ss}'}"
+                   FontSize="12" Opacity="0.7" Margin="10"/>
+
+		<Grid Margin="5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Text="Кран:" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+
+			<ToggleSwitch HorizontalAlignment="Right"
+						  IsChecked="{Binding WaterValueData.State}"
+						  OffContent="Закрыт"
+						  OnContent="Открыт"
+						  IsEnabled="{Binding IsEnableButton}"
+						  Command="{Binding SwitchWaterValueCommand}"
+						  CommandParameter="{Binding WaterValueData}" />
+		</Grid>
+	</StackPanel>
+</UserControl>
