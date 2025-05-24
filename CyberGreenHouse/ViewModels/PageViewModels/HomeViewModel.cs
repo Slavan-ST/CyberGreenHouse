@@ -1,26 +1,22 @@
-﻿using Avalonia.Threading;
+using Avalonia.Threading;
 using CyberGreenHouse.Models;
 using CyberGreenHouse.Models.Response;
 using CyberGreenHouse.Tools;
 using MsBox.Avalonia;
 using ReactiveUI;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Reactive;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace CyberGreenHouse.ViewModels.PageViewModels
 {
-    public class HomeViewModel : ViewModelBase
+    public class HomeViewModel : ViewModelBase, IDisposable
     {
         private Sensors? _sensorData;
         private DispatcherTimer? _timer;
         private WaterValue _waterValueData;
         private bool _isEnableButton = true;
+        private bool _disposed;
 
         public Sensors? SensorData
         {
@@ -42,11 +38,9 @@ namespace CyberGreenHouse.ViewModels.PageViewModels
 
         public ReactiveCommand<WaterValue, Unit> SwitchWaterValueCommand { get; }
 
-
-
         public HomeViewModel()
         {
-            LoadData(); //PreLoad
+            LoadData();
 
             SwitchWaterValueCommand = ReactiveCommand.CreateFromTask<WaterValue>(SwitchWaterValue);
 
@@ -54,17 +48,19 @@ namespace CyberGreenHouse.ViewModels.PageViewModels
             {
                 Interval = TimeSpan.FromSeconds(5)
             };
-            _timer.Tick += async (sender, e) =>
-            {
-                await LoadData();
-            };
+            _timer.Tick += OnTimerTick;
             _timer.Start();
+        }
+
+        private async void OnTimerTick(object? sender, EventArgs e)
+        {
+            await LoadData();
         }
 
         private async Task SwitchWaterValue(WaterValue arg)
         {
             IsEnableButton = false;
-            string state = (string)DataConverter.ConvertBack<WaterValue>(arg);
+            string state = DataConverter.ConvertBack<WaterValue>(arg) as string ?? string.Empty;
             await DataService.SetWaterValue(state);
             await RunAfterDelay(15000, () =>
             {
@@ -74,55 +70,62 @@ namespace CyberGreenHouse.ViewModels.PageViewModels
 
         private async Task LoadData()
         {
-            await LoadSensorDataAsync();
-            await LoadValue();
+            await Task.WhenAll(LoadSensorDataAsync(), LoadValue());
         }
 
         private async Task LoadSensorDataAsync()
         {
             var result = await DataService.GetSensorData();
-
-            if (result.ErrorMessage != string.Empty)
-            {
-                if (result.ErrorMessage != string.Empty)
-                {
-                    var errorBox = MessageBoxManager.GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
-                    await errorBox.ShowAsync();
-                }
-            }
-            else
-            {
-                SensorData = DataConverter.Convert<Sensors>(result.Data);
-            }
+            if (await ShowErrorIfAny(result)) return;
+            SensorData = DataConverter.Convert<Sensors>(result.Data);
         }
 
         private async Task LoadValue()
         {
             var result = await DataService.GetValueState();
-
-            if (result.ErrorMessage != string.Empty)
-            {
-                if (result.ErrorMessage != string.Empty)
-                {
-                    var errorBox = MessageBoxManager.GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
-                    await errorBox.ShowAsync();
-                }
-            }
-            else
-            {
-                WaterValueData = DataConverter.Convert<WaterValue>(result.Data);
-            }
+            if (await ShowErrorIfAny(result)) return;
+            WaterValueData = DataConverter.Convert<WaterValue>(result.Data);
         }
 
-        /// <summary>
-        /// Выполняет действие с задержкой (без async/await).
-        /// </summary>
-        /// <param name="delayMs">Задержка в миллисекундах.</param>
-        /// <param name="action">Действие для выполнения.</param>
+        private async Task<bool> ShowErrorIfAny(BaseResponse result)
+        {
+            if (!string.IsNullOrWhiteSpace(result.ErrorMessage))
+            {
+                var errorBox = MessageBoxManager
+                    .GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
+                await errorBox.ShowAsync();
+                return true;
+            }
+            return false;
+        }
+
         private static async Task RunAfterDelay(int delayMs, Action action)
         {
             await Task.Delay(delayMs);
             action();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+
+            if (disposing)
+            {
+                if (_timer is not null)
+                {
+                    _timer.Tick -= OnTimerTick;
+                    _timer.Stop();
+                    _timer = null;
+                }
+            }
+
+            _disposed = true;
         }
     }
 }

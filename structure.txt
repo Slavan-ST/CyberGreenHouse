@@ -1,0 +1,100 @@
+│   │   │   │   │   │   │   │   └── CyberGreenHouse
+└── Directory.Build.props
+├── CyberGreenHouse.Android
+│   └── Resources
+│   │   └── drawable
+│   │   │   └── Icon.png
+│   │   │   ├── splash_screen.xml
+│   │   └── values-night
+│   │   │   └── colors.xml
+│   │   └── values
+│   │   │   └── styles.xml
+│   │   │   ├── colors.xml
+│   └── MainActivity.cs
+│   ├── Properties
+│   │   └── AndroidManifest.xml
+│   └── CyberGreenHouse.Android.csproj
+└── EspPlate
+│   └── .gitignore
+│   ├── platformio.ini
+│   ├── src
+│   │   └── main.cpp
+│   └── include
+│   │   └── README
+│   └── wokwi.toml
+│   ├── diagram.json
+│   ├── lib
+│   │   └── README
+│   └── .vscode
+│   │   └── extensions.json
+│   └── test
+│   │   └── README
+└── CyberGreenHouse
+│   └── Tools
+│   │   └── DataService.cs
+│   │   ├── RelayCommand.cs
+│   │   ├── DataConverter.cs
+│   └── Assets
+│   │   └── Icon.ico
+│   │   ├── wet-step.png
+│   │   ├── dry-step.png
+│   └── App.axaml.cs
+│   ├── Converters
+│   │   └── BoolToDoubleConverter.cs
+│   │   ├── BoolToNegatedDoubleConverter.cs
+│   └── Animators
+│   │   └── PlacementAnimator.cs
+│   └── Views
+│   │   └── MainView.axaml.cs
+│   │   ├── MainWindow.axaml.cs
+│   │   ├── MainWindow.axaml
+│   │   ├── MainView.axaml
+│   │   ├── BurgerMenu.axaml.cs
+│   │   ├── BurgerMenu.axaml
+│   │   ├── Pages
+│   │   │   └── AboutView.axaml.cs
+│   │   │   ├── Calibration
+│   │   │   │   └── DryStep.axaml.cs
+│   │   │   │   ├── FinishStep.axaml.cs
+│   │   │   │   ├── DryStep.axaml
+│   │   │   │   ├── FinishStep.axaml
+│   │   │   │   ├── WetStep.axaml
+│   │   │   │   ├── WetStep.axaml.cs
+│   │   │   └── CalibrationView.axaml
+│   │   │   ├── SettingsView.axaml
+│   │   │   ├── ScheduleView.axaml
+│   │   │   ├── HomeView.axaml.cs
+│   │   │   ├── ScheduleView.axaml.cs
+│   │   │   ├── SettingsView.axaml.cs
+│   │   │   ├── AboutView.axaml
+│   │   │   ├── HomeView.axaml
+│   │   │   ├── CalibrationView.axaml.cs
+│   └── CyberGreenHouse.csproj
+│   ├── Models
+│   │   └── Sensors.cs
+│   │   ├── Plate.cs
+│   │   ├── Response
+│   │   │   └── ErrorTypes.cs
+│   │   │   ├── DataResult.cs
+│   │   │   ├── Response.cs
+│   │   │   ├── Feed.cs
+│   │   │   ├── Channel.cs
+│   │   └── Schedule.cs
+│   │   ├── WaterValue.cs
+│   └── ViewModels
+│   │   └── PageViewModels
+│   │   │   └── HomeViewModel.cs
+│   │   │   ├── SettingsViewModel.cs
+│   │   │   ├── ScheduleViewModel.cs
+│   │   │   ├── CalibrationViewModel.cs
+│   │   └── MainViewModel.cs
+│   │   ├── ViewModelBase.cs
+│   └── App.axaml
+└── .gitignore
+├── structure.txt
+├── CyberGreenHouse.Desktop
+│   └── app.manifest
+│   ├── Program.cs
+│   ├── CyberGreenHouse.Desktop.csproj
+└── .gitattributes
+├── CyberGreenHouse.sln

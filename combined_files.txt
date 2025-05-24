@@ -1,0 +1,4230 @@
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/Directory.Build.props ===
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <AvaloniaVersion>11.1.0</AvaloniaVersion>
+  </PropertyGroup>
+</Project>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/Directory.Build.props ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Resources/drawable/splash_screen.xml ===
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item>
+    <color android:color="@color/splash_background"/>
+  </item>
+
+  <item android:drawable="@drawable/icon"
+        android:width="120dp"
+        android:height="120dp"
+        android:gravity="center" />
+
+</layer-list>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Resources/drawable/splash_screen.xml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Resources/values-night/colors.xml ===
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="splash_background">#212121</color>
+</resources>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Resources/values-night/colors.xml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Resources/values/styles.xml ===
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <style name="MyTheme">
+  </style>
+
+  <style name="MyTheme.NoActionBar" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
+    <item name="android:windowActionBar">false</item>
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+</resources>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Resources/values/styles.xml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Resources/values/colors.xml ===
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="splash_background">#FFFFFF</color>
+</resources>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Resources/values/colors.xml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/MainActivity.cs ===
+﻿using Android.App;
+using Android.Content.PM;
+
+using Avalonia;
+using Avalonia.Android;
+using Avalonia.ReactiveUI;
+
+namespace CyberGreenHouse.Android;
+
+[Activity(
+    Theme = "@style/MyTheme.NoActionBar",
+    Icon = "@drawable/icon",
+    MainLauncher = true,
+    ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
+public class MainActivity : AvaloniaMainActivity<App>
+{
+    protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
+    {
+        return base.CustomizeAppBuilder(builder)
+            .WithInterFont()
+            .UseReactiveUI();
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/MainActivity.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Properties/AndroidManifest.xml ===
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application android:label="МояТепличка" android:icon="@drawable/Icon" />
+</manifest>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/Properties/AndroidManifest.xml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/CyberGreenHouse.Android.csproj ===
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    <Nullable>enable</Nullable>
+    <ApplicationId>com.CompanyName.AvaloniaTest</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Android" Version="11.2.8" />
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.2.7.3" />
+    <PackageReference Include="DynamicData" Version="9.2.2" />
+    <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CyberGreenHouse\CyberGreenHouse.csproj" />
+  </ItemGroup>
+</Project>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Android/CyberGreenHouse.Android.csproj ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/.gitignore ===
+.pio
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/.gitignore ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/platformio.ini ===
+; PlatformIO Project Configuration File
+;
+;   Build options: build flags, source filter
+;   Upload options: custom upload port, speed and extra flags
+;   Library options: dependencies, extra library storages
+;   Advanced options: extra scripting
+;
+; Please visit documentation for the other options and examples
+; https://docs.platformio.org/page/projectconf.html
+
+[env:adafruit_feather_esp32_v2]
+platform = espressif32
+board = esp32dev
+framework = arduino
+monitor_speed = 115200
+lib_deps = 
+	marcoschwartz/LiquidCrystal_I2C@^1.1.4
+	bblanchon/ArduinoJson@^7.3.1
+	adafruit/DHT sensor library@^1.4.6
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/platformio.ini ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/src/main.cpp ===
+#include "Arduino.h"
+#include <WiFi.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include <WiFiClientSecure.h>
+#include <DHT.h>
+#include <Preferences.h>
+#include <time.h>
+
+// Настройки LCD (20x4 символа)
+#define LCD_COLS 20
+#define LCD_ROWS 4
+
+#define VALVE_PIN 16     // GPIO для управления краном (HIGH - открыт, LOW - закрыт)
+
+LiquidCrystal_I2C LCD(0x27, LCD_COLS, LCD_ROWS);
+
+// Датчик DHT11
+DHT dht(GPIO_NUM_26, DHT11);
+
+// Настройки WiFi
+const char* ssid = "HomeWi-Fi(72)"; // Wokwi-GUEST  RT-GPON-AFF7 HomeWi-Fi(72)
+const char* password = "R3GXR72F"; // - AY3urdXsAE R3GXR72F 
+
+// Настройки NTP
+const char* ntpServer = "pool.ntp.org";
+const long gmtOffset_sec = 0;
+const int daylightOffset_sec = 0;
+
+// Настройки ThingSpeak
+const char* thingspeakHost = "api.thingspeak.com";
+
+// Каналы ThingSpeak
+const long sensorDataChannelID = 2405797;
+const String sensorDataWriteAPIKey = "PNXZHSN7YKFKMGBW";
+const String sensorDataReadAPIKey = "VF7D6JDUS3WKZAO3";
+
+const long boardModeChannelID = 2925691;
+const String boardModeReadAPIKey = "FSAAE1JXYRQPAIDL";
+
+const long valveStateChannelID = 2925696;
+const String valveStateWriteAPIKey = "HYJF2C4SZR8BU3X8";
+const String valveStateReadAPIKey = "FQ5E6QKU0T0IBRPA";
+
+const long scheduleChannelID = 2925698;
+const String scheduleReadAPIKey = "Q5EWB0V950NUB9VS";
+
+// Датчики почвы
+const int sensorPins[] = {36, 39, 34};
+const int numSensors = 3;
+int dryValues[3] = {4095, 4095, 4095};
+int wetValues[3] = {0, 0, 0};
+
+// Состояния калибровки
+enum CalibrationState {
+  NORMAL_MODE = 0,
+  CALIBRATION_DRY = 1,
+  CALIBRATION_WET = 2
+};
+CalibrationState currentState = NORMAL_MODE;
+CalibrationState previousState = NORMAL_MODE;
+
+// Номера полей ThingSpeak
+const int FIELD_TEMP = 1;
+const int FIELD_HUMIDITY = 2;
+const int FIELD_SOIL = 3;
+const int FIELD_CONTROL = 1;
+const int FIELD_VALVE_STATE = 1;
+
+Preferences preferences;
+WiFiClientSecure client;
+unsigned long lastUpdateTime = 0;
+unsigned long lastCheckTime = 0;
+const long updateInterval = 5000;
+const long checkInterval = 5000;
+const long scheduleLoadInterval = 5*60*1000;  // 1 час для загрузки с сервера
+const long scheduleCheckInterval = 60000;   // 1 минута для проверки из кэша
+
+// Переменные для управления краном
+int valveState = 0;
+int targetValveState = 0;
+unsigned long valveOpenTime = 0;
+bool valveNeedsClosing = false;
+int valveDuration = 0;
+
+// Структура для хранения расписания полива
+struct WateringSchedule {
+  int startTime;
+  int duration;
+};
+
+WateringSchedule schedules[4];
+unsigned long lastScheduleCheck = 0;
+
+
+const int TIME_ZONE_OFFSET = 7 * 3600; 
+
+// Структуры для работы с ThingSpeak
+struct ThingSpeakData {
+  int fieldNumber;
+  String value;
+};
+
+struct ThingSpeakReadRequest {
+  int fieldNumber;
+  int* result;
+};
+
+// Универсальная функция для отправки данных
+bool sendToThingSpeak(const ThingSpeakData data[], int dataCount, 
+                     long channelID = sensorDataChannelID, 
+                     const String& apiKey = sensorDataWriteAPIKey) {
+  String postData = "";
+  
+  for (int i = 0; i < dataCount; i++) {
+    if (i > 0) postData += "&";
+    postData += "field" + String(data[i].fieldNumber) + "=" + data[i].value;
+  }
+  
+  postData += "&api_key=" + apiKey;
+
+  if (!client.connect(thingspeakHost, 443)) {
+    Serial.println("Connection to ThingSpeak failed!");
+    LCD.setCursor(0, 3);
+    LCD.print("TS: Conn Fail");
+    return false;
+  }
+
+  client.println("POST /update HTTP/1.1");
+  client.println("Host: " + String(thingspeakHost));
+  client.println("Connection: close");
+  client.println("Content-Type: application/x-www-form-urlencoded");
+  client.print("Content-Length: ");
+  client.println(postData.length());
+  client.println();
+  client.print(postData);
+
+  unsigned long timeout = millis();
+  while (!client.available() && millis() - timeout < 5000) {
+    delay(10);
+  }
+
+  bool success = false;
+  while (client.available()) {
+    String line = client.readStringUntil('\n');
+    if (line.startsWith("HTTP/1.1") && line.indexOf("200") > 0) {
+      success = true;
+    }
+  }
+
+  client.stop();
+  
+  LCD.setCursor(0, 3);
+  if (success) {
+    LCD.print("TS: Send OK  ");
+  } else {
+    LCD.print("TS: Send Fail");
+  }
+  
+  return success;
+}
+
+// Функция чтения нескольких полей
+bool readMultipleThingSpeakFields(ThingSpeakReadRequest requests[], int requestCount,
+                                long channelID, const String& apiKey) {
+  if (!client.connect(thingspeakHost, 443)) {
+    Serial.println("ОШИБКА: Не удалось подключиться");
+    return false;
+  }
+
+  String request = String("GET /channels/") + channelID + 
+                 "/feeds.json?results=1&api_key=" + apiKey + 
+                 " HTTP/1.1\r\n" +
+                 "Host: " + thingspeakHost + "\r\n" +
+                 "Connection: close\r\n\r\n";
+  
+  client.print(request);
+
+  unsigned long startTime = millis();
+  while (!client.available() && (millis() - startTime) < 10000) {
+    delay(100);
+  }
+
+  if (!client.available()) {
+    Serial.println("ТАЙМАУТ: Ответ не получен");
+    client.stop();
+    return false;
+  }
+
+  String response = "";
+  while (client.available()) {
+    response += client.readStringUntil('\n');
+  }
+  client.stop();
+
+  int feedsStart = response.indexOf("\"feeds\":[");
+  if (feedsStart == -1) {
+    Serial.println("ОШИБКА: Не найден массив feeds");
+    return false;
+  }
+
+  for (int i = 0; i < requestCount; i++) {
+    String fieldPattern = "\"field" + String(requests[i].fieldNumber) + "\":";
+    int fieldPos = response.indexOf(fieldPattern, feedsStart);
+    
+    if (fieldPos == -1) {
+      Serial.println("ОШИБКА: Не найдено поле field" + String(requests[i].fieldNumber));
+      *(requests[i].result) = -1;
+      continue;
+    }
+
+    fieldPos += fieldPattern.length();
+    int valueStart = fieldPos;
+    while (valueStart < response.length() && 
+          (response.charAt(valueStart) == ' ' || 
+           response.charAt(valueStart) == '\"')) {
+      valueStart++;
+    }
+
+    int valueEnd = valueStart;
+    while (valueEnd < response.length() && 
+          response.charAt(valueEnd) != ',' && 
+          response.charAt(valueEnd) != '}' &&
+          response.charAt(valueEnd) != '\"') {
+      valueEnd++;
+    }
+
+    String valueStr = response.substring(valueStart, valueEnd);
+    valueStr.trim();
+
+    if (valueStr.isEmpty() || valueStr == "null") {
+      *(requests[i].result) = -1;
+    } else {
+      *(requests[i].result) = valueStr.toInt();
+    }
+  }
+
+  return true;
+}
+
+void loadSchedulesFromEEPROM() {
+  preferences.begin("watering-sched", true);
+  for (int i = 0; i < 4; i++) {
+    schedules[i].startTime = preferences.getInt(("time"+String(i)).c_str(), -1);
+    schedules[i].duration = preferences.getInt(("dur"+String(i)).c_str(), 0);
+    Serial.print("Loaded from EEPROM Schedule ");
+    Serial.print(i);
+    Serial.print(": Time=");
+    Serial.print(schedules[i].startTime);
+    Serial.print(", Duration=");
+    Serial.println(schedules[i].duration);
+  }
+  preferences.end();
+}
+
+void saveSchedulesToEEPROM() {
+  preferences.begin("watering-sched", false);
+  for (int i = 0; i < 4; i++) {
+    preferences.putInt(("time"+String(i)).c_str(), schedules[i].startTime);
+    preferences.putInt(("dur"+String(i)).c_str(), schedules[i].duration);
+  }
+  preferences.end();
+  Serial.println("Schedules saved to EEPROM");
+}
+
+void loadWateringSchedules() {
+  int times[4], durations[4];
+  
+  ThingSpeakReadRequest requests[8];
+  for (int i = 0; i < 4; i++) {
+    requests[i*2] = {1 + i*2, &times[i]};
+    requests[i*2+1] = {2 + i*2, &durations[i]};
+  }
+
+  if (readMultipleThingSpeakFields(requests, 8, scheduleChannelID, scheduleReadAPIKey)) {
+    for (int i = 0; i < 4; i++) {
+      schedules[i].startTime = times[i];
+      schedules[i].duration = durations[i];
+    }
+    saveSchedulesToEEPROM();
+  } else {
+    Serial.println("Ошибка загрузки расписания, используем EEPROM данные");
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  LCD.init();
+  LCD.backlight();
+  dht.begin();
+
+  // Загрузка калибровочных значений
+  preferences.begin("soil-calib", false);
+  for (int i = 0; i < numSensors; i++) {
+    dryValues[i] = preferences.getInt(("dry"+String(i)).c_str(), 4095);
+    wetValues[i] = preferences.getInt(("wet"+String(i)).c_str(), 0);
+  }
+  preferences.end();
+
+  // Загрузка расписания из EEPROM при старте
+  loadSchedulesFromEEPROM();
+
+  client.setTimeout(10000);
+  client.setInsecure();
+
+  WiFi.mode(WIFI_STA);
+  WiFi.disconnect(true);  // Удаляем сохранённые сети
+  delay(1000);
+
+  Serial.println("Scanning networks...");
+  int n = WiFi.scanNetworks();
+  if (n == 0) {
+    Serial.println("No networks found!");
+  } else {
+    Serial.println("Available networks:");
+    for (int i = 0; i < n; i++) {
+      Serial.println(WiFi.SSID(i) + " (" + WiFi.RSSI(i) + " dBm)");
+    }
+  }
+
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to WiFi");
+  Serial.println("SSID: " + String(ssid));
+  Serial.println("Password: " + String(password));
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+    Serial.println(WiFi.status());
+  }
+  Serial.println("\nConnected! IP: " + WiFi.localIP().toString());
+  
+  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+  
+  LCD.setCursor(0, 0);
+  LCD.print("WiFi Connected");
+
+  pinMode(VALVE_PIN, OUTPUT);
+  digitalWrite(VALVE_PIN, LOW); // Изначально кран закрыт
+
+  // Первая загрузка расписания с сервера
+  if (WiFi.status() == WL_CONNECTED) {
+    loadWateringSchedules();
+  }
+}
+
+void OpenValve(int duration) {
+  digitalWrite(VALVE_PIN, HIGH); // Подаем сигнал на открытие
+  Serial.println("Valve OPEN command sent");
+  valveState = 1;
+  valveOpenTime = millis();
+  valveDuration = duration;
+  valveNeedsClosing = (duration > 0);
+  
+  ThingSpeakData valveData[] = {
+    {FIELD_VALVE_STATE, String(valveState)}
+  };
+  sendToThingSpeak(valveData, 1, valveStateChannelID, valveStateWriteAPIKey);
+}
+
+void CloseValve() {
+  digitalWrite(VALVE_PIN, LOW); // Убираем сигнал - кран закрывается
+  Serial.println("Valve CLOSE command sent");
+  valveState = 0;
+  valveNeedsClosing = false;
+  
+  ThingSpeakData valveData[] = {
+    {FIELD_VALVE_STATE, String(valveState)}
+  };
+  sendToThingSpeak(valveData, 1, valveStateChannelID, valveStateWriteAPIKey);
+}
+
+int readSoilMoisture() {
+  float avg = 0;
+  for (int i = 0; i < numSensors; i++) {
+    int rawValue = analogRead(sensorPins[i]);
+    int moisture = map(rawValue, dryValues[i], wetValues[i], 0, 100);
+    avg += constrain(moisture, 0, 100);
+    delay(10);
+  }
+  return avg / numSensors;
+}
+
+void displaySensorData(float temp, float hum, int soil) {
+  LCD.clear();
+
+  LCD.setCursor(0, 0);
+  LCD.print("Temp: ");
+  LCD.print(temp, 1);
+  LCD.print("C");
+  
+  LCD.setCursor(0, 1);
+  LCD.print("Hum: ");
+  LCD.print(hum, 1);
+  LCD.print("%");
+  
+  LCD.setCursor(0, 2);
+  LCD.print("Soil: ");
+  LCD.print(soil);
+  LCD.print("%");
+
+  LCD.setCursor(0, 3);
+  LCD.print("Valve: ");
+  LCD.print(valveState ? "OPEN " : "CLOSED");
+  if (valveState) {
+    LCD.print(" ");
+    unsigned long remaining = (valveDuration * 1000 - (millis() - valveOpenTime)) / 1000;
+    LCD.print(remaining);
+    LCD.print("s");
+  }
+
+  Serial.println("Почва: ");
+  Serial.print(soil);
+}
+
+void handleStateChange() {
+  if (currentState == previousState) return;
+
+  LCD.clear();
+  
+  switch(currentState) {
+    case CALIBRATION_DRY:
+      LCD.clear();
+      LCD.setCursor(0, 0);
+      LCD.print("STEP 1/2: DRY CALIB");
+      LCD.setCursor(0, 1);
+      LCD.print("1. Place sensors in");
+      LCD.setCursor(0, 2);
+      LCD.print("DRY environment");
+      LCD.setCursor(0, 3);
+      LCD.print("2. And press 'Next'");
+      break;
+
+    case CALIBRATION_WET:
+      for (int i = 0; i < numSensors; i++) {
+        dryValues[i] = analogRead(sensorPins[i]);
+      }
+      LCD.clear();
+      LCD.setCursor(0, 0);
+      LCD.print("STEP 2/2: WET CALIB");
+      LCD.setCursor(0, 1);
+      LCD.print("DRY values SAVED!");
+      LCD.setCursor(0, 2);
+      LCD.print("1. Place in WATER");
+      LCD.setCursor(0, 3);
+      LCD.print("2. And press 'Done'");
+      break;
+
+    case NORMAL_MODE:
+      if(previousState == CALIBRATION_WET) {
+        for (int i = 0; i < numSensors; i++) {
+          wetValues[i] = analogRead(sensorPins[i]);
+        }
+        
+        preferences.begin("soil-calib", false);
+        for (int i = 0; i < numSensors; i++) {
+          preferences.putInt(("dry"+String(i)).c_str(), dryValues[i]);
+          preferences.putInt(("wet"+String(i)).c_str(), wetValues[i]);
+        }
+        preferences.end();
+
+        LCD.setCursor(0, 0);
+        LCD.print("CALIBRATION COMPLETE!");
+        LCD.setCursor(0, 1);
+        LCD.print("All data saved");
+        LCD.setCursor(0, 3);
+        LCD.print("Auto exit in 3s");
+        
+        delay(3000);
+      }
+      break;
+  }
+  
+  previousState = currentState;
+}
+
+void reconnectWiFi() {
+  static unsigned long lastAttemptTime = 0;
+  const unsigned long attemptInterval = 10000;
+  
+  if (WiFi.status() == WL_CONNECTED) return;
+  
+  if (millis() - lastAttemptTime >= attemptInterval) {
+    LCD.clear();
+    LCD.setCursor(0, 0);
+    LCD.print("WiFi Disconnected!");
+    LCD.setCursor(0, 1);
+    LCD.print("Reconnecting...");
+    
+    WiFi.disconnect();
+    WiFi.begin(ssid, password);
+    
+    unsigned long startTime = millis();
+    while (WiFi.status() != WL_CONNECTED && millis() - startTime < 10000) {
+      delay(500);
+      LCD.setCursor(0, 2);
+      LCD.print("Attempt in ");
+      LCD.print((10000 - (millis() - startTime)) / 1000);
+      LCD.print("s");
+    }
+    
+    if (WiFi.status() == WL_CONNECTED) {
+      LCD.clear();
+      LCD.setCursor(0, 0);
+      LCD.print("WiFi Connected!");
+      LCD.setCursor(0, 1);
+      LCD.print("IP: ");
+      LCD.print(WiFi.localIP().toString());
+      // При переподключении обновляем расписание
+      loadWateringSchedules();
+    } else {
+      LCD.setCursor(0, 3);
+      LCD.print("Failed! Retry...");
+    }
+    
+    lastAttemptTime = millis();
+  }
+}
+
+bool shouldSkipWatering(float temp, float hum, int soil) {
+  time_t now = time(nullptr);
+  struct tm *timeinfo;
+  timeinfo = localtime(&now);
+  int currentTimeSec = timeinfo->tm_hour * 3600 + timeinfo->tm_min * 60 + timeinfo->tm_sec;
+  
+  bool isDayTime = (currentTimeSec >= 6*3600 && currentTimeSec < 22*3600);
+  
+  if (isDayTime && temp > 30.0) return true;
+  if (!isDayTime && temp < 12.0) return true;
+  if (hum > 85.0) return true;
+  if (soil > 75.0) return true;
+  
+  return false;
+}
+
+void checkManualValveControl() {
+  int newValveState;
+  ThingSpeakReadRequest request = {FIELD_VALVE_STATE, &newValveState};
+  
+  if (readMultipleThingSpeakFields(&request, 1, valveStateChannelID, valveStateReadAPIKey)) {
+    if (newValveState != -1 && newValveState != targetValveState) {
+      targetValveState = newValveState;
+      
+      if (targetValveState == 1 && valveState == 0) {
+        OpenValve(0);
+      } else if (targetValveState == 0 && valveState == 1) {
+        CloseValve();
+      }
+    }
+  }
+}
+
+void checkScheduledValveControl() {
+  // Раз в час загружаем расписание с сервера
+  if (millis() - lastScheduleCheck >= scheduleLoadInterval) {
+    if (WiFi.status() == WL_CONNECTED) {
+      loadWateringSchedules();
+    }
+    lastScheduleCheck = millis();
+  }
+
+  // Раз в минуту проверяем расписание из кэша
+  static unsigned long lastMinuteCheck = 0;
+  if (millis() - lastMinuteCheck < scheduleCheckInterval) return;
+  lastMinuteCheck = millis();
+
+
+  Serial.println("Current Watering Schedules:");
+  for (int i = 0; i < 4; i++) {
+    Serial.print("Schedule ");
+    Serial.print(i);
+    Serial.print(": Time=");
+    
+    if (schedules[i].startTime == -1) {
+      Serial.print("NOT SET");
+    } else {
+      // Конвертация секунд в часы:минуты
+      int hours = schedules[i].startTime / 3600;
+      int minutes = (schedules[i].startTime % 3600) / 60;
+      Serial.print(hours);
+      Serial.print(":");
+      if (minutes < 10) Serial.print("0");
+      Serial.print(minutes);
+    }
+    
+    Serial.print(", Duration=");
+    Serial.print(schedules[i].duration);
+    Serial.println(" seconds");
+  }
+  Serial.println("----------------------");
+
+  
+  time_t now = time(nullptr);
+  struct tm *timeinfo = localtime(&now);
+  int currentTimeSec = (timeinfo->tm_hour * 3600) + 
+                      (timeinfo->tm_min * 60) + 
+                      timeinfo->tm_sec + 
+                      TIME_ZONE_OFFSET;
+  
+  for (int i = 0; i < 4; i++) {
+    if (schedules[i].startTime == -1 || valveState == 1) continue;
+    Serial.print("\nПроверка расписания #");
+    Serial.println(i);
+
+    int timeDiff = currentTimeSec - schedules[i].startTime;
+    int absoluteDiff = abs(timeDiff);
+    
+    Serial.print(" - Время расписания: ");
+    Serial.print(schedules[i].startTime / 3600);
+    Serial.print(":");
+    Serial.print((schedules[i].startTime % 3600) / 60);
+    Serial.print(" (");
+    Serial.print(schedules[i].startTime);
+    Serial.println(" сек)");
+    
+    Serial.print(" - Разница времени: ");
+    Serial.print(timeDiff);
+    Serial.println(" сек");
+
+    int hours = currentTimeSec / 3600;
+    int minutes = (currentTimeSec % 3600) / 60;
+    int seconds = currentTimeSec % 60;
+    
+    Serial.print(" - Текущее время: ");
+    if (hours < 10) Serial.print("0");
+    Serial.print(hours);
+    Serial.print(":");
+    if (minutes < 10) Serial.print("0");
+    Serial.print(minutes);
+    Serial.print(":");
+    if (seconds < 10) Serial.print("0");
+    Serial.println(seconds);
+
+    if (abs(currentTimeSec - schedules[i].startTime) <= 300) {
+      float temp = dht.readTemperature();
+      float hum = dht.readHumidity();
+      int soil = readSoilMoisture();
+      
+      if (!shouldSkipWatering(temp, hum, soil)) {
+        OpenValve(schedules[i].duration);
+        break;
+      }
+    }
+  }
+}
+
+void checkValveState() {
+  if (valveNeedsClosing && valveDuration > 0 && millis() - valveOpenTime >= valveDuration * 1000) {
+    CloseValve();
+  }
+}
+
+void loop() {
+  reconnectWiFi();
+  
+  if (millis() - lastCheckTime > checkInterval) {
+    checkManualValveControl();
+    checkScheduledValveControl();
+    checkValveState();
+    
+    int controlValue;
+    ThingSpeakReadRequest request = {FIELD_CONTROL, &controlValue};
+    if (readMultipleThingSpeakFields(&request, 1, boardModeChannelID, boardModeReadAPIKey)) {
+      if (controlValue >= 0) {
+        CalibrationState newState = static_cast<CalibrationState>(controlValue);
+        if (newState != currentState) {
+          currentState = newState;
+          handleStateChange();
+        }
+      }
+    }
+    lastCheckTime = millis();
+  }
+
+  if(currentState == NORMAL_MODE){
+    float temp = dht.readTemperature();
+    float hum = dht.readHumidity();
+    int soil = readSoilMoisture();
+    
+    displaySensorData(temp, hum, soil);
+    
+    if (millis() - lastUpdateTime > updateInterval) {
+      ThingSpeakData sensorData[] = {
+        {FIELD_TEMP, String(temp)},
+        {FIELD_HUMIDITY, String(hum)},
+        {FIELD_SOIL, String(soil)},
+      };
+      sendToThingSpeak(sensorData, 3, sensorDataChannelID, sensorDataWriteAPIKey);
+      lastUpdateTime = millis();
+    }
+  }
+  
+  delay(2000);
+}
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/src/main.cpp ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/include/README ===
+
+This directory is intended for project header files.
+
+A header file is a file containing C declarations and macro definitions
+to be shared between several project source files. You request the use of a
+header file in your project source file (C, C++, etc) located in `src` folder
+by including it, with the C preprocessing directive `#include'.
+
+```src/main.c
+
+#include "header.h"
+
+int main (void)
+{
+ ...
+}
+```
+
+Including a header file produces the same results as copying the header file
+into each source file that needs it. Such copying would be time-consuming
+and error-prone. With a header file, the related declarations appear
+in only one place. If they need to be changed, they can be changed in one
+place, and programs that include the header file will automatically use the
+new version when next recompiled. The header file eliminates the labor of
+finding and changing all the copies as well as the risk that a failure to
+find one copy will result in inconsistencies within a program.
+
+In C, the convention is to give header files names that end with `.h'.
+
+Read more about using header files in official GCC documentation:
+
+* Include Syntax
+* Include Operation
+* Once-Only Headers
+* Computed Includes
+
+https://gcc.gnu.org/onlinedocs/cpp/Header-Files.html
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/include/README ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/wokwi.toml ===
+[wokwi]
+version=1
+firmware='.pio/build/adafruit_feather_esp32_v2/firmware.bin'
+elf='.pio/build/adafruit_feather_esp32_v2/firmware.elf'
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/wokwi.toml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/diagram.json ===
+{
+  "version": 1,
+  "author": "ТЫЖ ПРОГРАММИСТ",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -76.8, "left": 43.24, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": -70.4,
+      "left": 207.2,
+      "attrs": { "pins": "i2c", "background": "blue", "color": "white" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -249.3, "left": 81, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 181.1, "left": 201.4, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": 181.1, "left": 307, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot3", "top": 181.1, "left": 412.6, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": 144,
+      "left": 211.2,
+      "attrs": { "text": "Вход 1\n" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": 144,
+      "left": 422.4,
+      "attrs": { "text": "Вход 2\n" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": 144,
+      "left": 316.8,
+      "attrs": { "text": "Центр" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": 115.2,
+      "left": 201.6,
+      "attrs": { "text": "Датчики влажности почвы (аналоговые)" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -166.8,
+      "left": 253.4,
+      "attrs": { "color": "green", "flip": "1" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text5",
+      "top": -201.6,
+      "left": 172.8,
+      "attrs": { "text": "Управление краном" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "v-4.49", "h-9.6", "v23.89" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-9.6", "v-9.6" ] ],
+    [ "lcd1:SCL", "esp:22", "purple", [ "h-48", "v-18.9" ] ],
+    [ "esp:GND.2", "dht1:GND", "black", [ "v0" ] ],
+    [ "esp:5V", "lcd1:VCC", "red", [ "h-19.05", "v19.2", "h163.2", "v-172.9" ] ],
+    [ "dht1:VCC", "esp:5V", "red", [ "h-57.6", "v86.4" ] ],
+    [ "dht1:SDA", "esp:26", "green", [ "v9.6", "h-76.7", "v163.2" ] ],
+    [ "esp:GND.2", "pot3:GND", "black", [ "v0", "h9.6", "v316.8", "h288" ] ],
+    [ "esp:GND.2", "pot2:GND", "black", [ "v0", "h9.6", "v316.8", "h182.4" ] ],
+    [ "esp:GND.2", "pot1:GND", "black", [ "v0", "h9.6", "v316.8", "h76.8" ] ],
+    [ "esp:3V3", "pot1:VCC", "red", [ "h-38.25", "v326.4", "h240" ] ],
+    [ "esp:3V3", "pot2:VCC", "red", [ "h-38.25", "v326.4", "h345.6" ] ],
+    [ "esp:3V3", "pot3:VCC", "red", [ "h-38.25", "v326.4", "h451.2" ] ],
+    [ "esp:VP", "pot1:SIG", "orange", [ "h-47.85", "v316.8", "h240" ] ],
+    [ "esp:VN", "pot2:SIG", "green", [ "h-57.45", "v316.8", "h355.2" ] ],
+    [ "esp:34", "pot3:SIG", "blue", [ "h-67.05", "v316.8", "h470.4" ] ],
+    [ "esp:16", "led2:A", "violet", [ "h38.4", "v-172.8", "h86" ] ],
+    [ "esp:GND.2", "led2:C", "black", [ "v-57.6", "h134.4" ] ]
+  ],
+  "dependencies": {}
+}
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/diagram.json ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/lib/README ===
+
+This directory is intended for project specific (private) libraries.
+PlatformIO will compile them to static libraries and link into the executable file.
+
+The source code of each library should be placed in a separate directory
+("lib/your_library_name/[Code]").
+
+For example, see the structure of the following example libraries `Foo` and `Bar`:
+
+|--lib
+|  |
+|  |--Bar
+|  |  |--docs
+|  |  |--examples
+|  |  |--src
+|  |     |- Bar.c
+|  |     |- Bar.h
+|  |  |- library.json (optional. for custom build options, etc) https://docs.platformio.org/page/librarymanager/config.html
+|  |
+|  |--Foo
+|  |  |- Foo.c
+|  |  |- Foo.h
+|  |
+|  |- README --> THIS FILE
+|
+|- platformio.ini
+|--src
+   |- main.c
+
+Example contents of `src/main.c` using Foo and Bar:
+```
+#include <Foo.h>
+#include <Bar.h>
+
+int main (void)
+{
+  ...
+}
+
+```
+
+The PlatformIO Library Dependency Finder will find automatically dependent
+libraries by scanning project source files.
+
+More information about PlatformIO Library Dependency Finder
+- https://docs.platformio.org/page/librarymanager/ldf.html
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/lib/README ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/test/README ===
+
+This directory is intended for PlatformIO Test Runner and project tests.
+
+Unit Testing is a software testing method by which individual units of
+source code, sets of one or more MCU program modules together with associated
+control data, usage procedures, and operating procedures, are tested to
+determine whether they are fit for use. Unit testing finds problems early
+in the development cycle.
+
+More information about PlatformIO Unit Testing:
+- https://docs.platformio.org/en/latest/advanced/unit-testing/index.html
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/EspPlate/test/README ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Tools/DataService.cs ===
+﻿using CyberGreenHouse.Models.Response;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Sockets;
+using System.Text;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
+using System.ComponentModel;
+
+namespace CyberGreenHouse.Tools
+{
+    public class DataService
+    {
+        private readonly HttpClient _httpClient;
+
+        private readonly string _host = "https://api.thingspeak.com";
+
+        #region API Keys and Chanels
+        private readonly string _sensorChannelId = "2405797";
+        private readonly string _sensorWriteKey = "PNXZHSN7YKFKMGBW";
+        private readonly string _sensorReadKey = "VF7D6JDUS3WKZAO3";
+
+        private readonly string _plateChannelId = "2925691";
+        private readonly string _plateWriteKey = "DRJYWUBYD8CW2G8S";
+        private readonly string _plateReadKey = "FSAAE1JXYRQPAIDL";
+
+        private readonly string _tapChannelId = "2925696";
+        private readonly string _tapWriteKey = "HYJF2C4SZR8BU3X8";
+        private readonly string _tapReadKey = "FQ5E6QKU0T0IBRPA";
+
+        private readonly string _scheduleChannelId = "2925698";
+        private readonly string _scheduleWriteKey = "B8YP04F9NR5VOX90";
+        private readonly string _scheduleReadKey = "Q5EWB0V950NUB9VS";
+        #endregion
+
+
+        public DataService()
+        {
+            _httpClient = new HttpClient();
+        }
+
+        public async Task<DataResult<T>> ExecuteRequestAsync<T>(Func<Task<T>> requestFunc)
+        {
+            try
+            {
+                var DataResult = await requestFunc();
+                if (DataResult is string strResult && strResult == "-1")
+                {
+                    throw new ArgumentException("Invalid input data or constants provided.");
+                }
+                return new DataResult<T> { Data = DataResult };
+            }
+            catch (ArgumentException)
+            {
+                return new DataResult<T>
+                {
+                    ErrorType = ErrorTypes.ServerError,
+                    ErrorMessage = "Ошибка при отправки значения на сервер.\nПроверьте интернет-соединение, если проблема не исчезнет обратитесь в техничекую поддержку"
+                };
+            }
+            catch (HttpRequestException ex) when (ex.InnerException is SocketException socketEx &&
+                (socketEx.SocketErrorCode == SocketError.HostNotFound ||
+                 socketEx.SocketErrorCode == SocketError.NetworkUnreachable ||
+                 socketEx.SocketErrorCode == SocketError.ConnectionRefused))
+            {
+                return new DataResult<T>
+                {
+                    ErrorType = ErrorTypes.NoInternet,
+                    ErrorMessage = "Нет подключения к интернету."
+                };
+            }
+            catch (HttpRequestException ex)
+            {
+                return new DataResult<T>
+                {
+                    ErrorType = ErrorTypes.ServerError,
+                    ErrorMessage = $"HTTP ошибка: {ex.Message}\nПроверьте Интернет-соединение."
+                };
+            }
+            catch (TaskCanceledException)
+            {
+                return new DataResult<T>
+                {
+                    ErrorType = ErrorTypes.Timeout,
+                    ErrorMessage = "Таймаут запроса."
+                };
+            }
+            catch (JsonException)
+            {
+                return new DataResult<T>
+                {
+                    ErrorType = ErrorTypes.InvalidJson,
+                    ErrorMessage = "Ошибка при обработке данных с сервера."
+                };
+            }
+            catch (UriFormatException)
+            {
+                return new DataResult<T>
+                {
+                    ErrorType = ErrorTypes.InvalidUrl,
+                    ErrorMessage = "Неверный формат URL."
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DataResult<T>
+                {
+                    ErrorType = ErrorTypes.Unknown,
+                    ErrorMessage = $"Неизвестная ошибка: {ex.Message}"
+                };
+            }
+        }
+
+        public async Task<DataResult<Response?>> GetSensorData()
+        {
+            return await ExecuteRequestAsync<Response?>(async () =>
+            {
+                string _apiUrl = $"{_host}/channels/{_sensorChannelId}/feeds.json?api_key={_sensorReadKey}&results=1";
+                var response = await _httpClient.GetAsync(_apiUrl);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                var data = JsonConvert.DeserializeObject<Response>(json);
+
+                return data;
+            });
+        }
+
+        public async Task<DataResult<Response?>> GetValueState()
+        {
+            return await ExecuteRequestAsync<Response?>(async () =>
+            {
+                string _apiUrl = $"{_host}/channels/{_tapChannelId}/feeds.json?api_key={_tapReadKey}&results=1";
+                var response = await _httpClient.GetAsync(_apiUrl);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                var data = JsonConvert.DeserializeObject<Response>(json);
+
+                return data;
+            });
+        }
+
+        public async Task<DataResult<string?>> SetWaterValue(string stateWaterVakue)
+        {
+            return await ExecuteRequestAsync<string?>(async () =>
+            {
+
+                string _apiUrl = $"{_host}/update?api_key={_tapWriteKey}&field1={stateWaterVakue}";
+                var response = await _httpClient.GetAsync(_apiUrl);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                var sensorData = JsonConvert.DeserializeObject<string>(json);
+
+                return sensorData;
+            });
+        }
+
+        public async Task<DataResult<Response?>> GetSchedule()
+        {
+            return await ExecuteRequestAsync<Response?>(async () =>
+            {
+                string _apiUrl = $"{_host}/channels/{_scheduleChannelId}/feeds.json?api_key={_scheduleReadKey}&results=1";
+                var response = await _httpClient.GetAsync(_apiUrl);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                var data = JsonConvert.DeserializeObject<Response>(json);
+
+                return data;
+            });
+        }
+
+        public async Task<DataResult<string?>> SetSchedules(string[] fieldValues)
+        {
+            return await ExecuteRequestAsync<string?>(async () =>
+            {
+                var queryBuilder = new StringBuilder($"{_host}/update?api_key={_scheduleWriteKey}");
+
+                for (int i = 0; i < fieldValues.Length; i++)
+                {
+                    queryBuilder.Append($"&field{i + 1}={fieldValues[i]}");
+                }
+
+                string _apiUrl = queryBuilder.ToString();
+                var response = await _httpClient.GetAsync(_apiUrl);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                var data = JsonConvert.DeserializeObject<string>(json);
+
+                return data;
+            });
+        }
+
+        public async Task<DataResult<Response?>> GetPlateStatus()
+        {
+            return await ExecuteRequestAsync<Response?>(async () =>
+            {
+                string _apiUrl = $"{_host}/channels/{_plateChannelId}/feeds.json?api_key={_plateReadKey}&results=1";
+                var response = await _httpClient.GetAsync(_apiUrl);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                var data = JsonConvert.DeserializeObject<Response>(json);
+
+                return data;
+            });
+        }
+
+        public async Task<DataResult<string?>> SetPlateState(string plateState)
+        {
+            return await ExecuteRequestAsync<string?>(async () =>
+            {
+
+                string _apiUrl = $"{_host}/update?api_key={_plateWriteKey}&field1={plateState}";
+                var response = await _httpClient.GetAsync(_apiUrl);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                var plateStatusEntries = JsonConvert.DeserializeObject<string>(json);
+
+                return plateStatusEntries;
+            });
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Tools/DataService.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Tools/RelayCommand.cs ===
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+
+namespace CyberGreenHouse.Tools
+{
+    public class RelayCommand : ICommand
+    {
+        private readonly Action _execute;
+        private readonly Func<bool>? _canExecute;
+
+        public event EventHandler? CanExecuteChanged;
+
+        public RelayCommand(Action execute, Func<bool>? canExecute = null)
+        {
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _canExecute = canExecute;
+        }
+
+        public bool CanExecute(object? parameter) => _canExecute?.Invoke() ?? true;
+
+        public void Execute(object? parameter) => _execute();
+
+        // Метод для ручного обновления состояния команды
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Tools/RelayCommand.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Tools/DataConverter.cs ===
+﻿using CyberGreenHouse.Models;
+using CyberGreenHouse.Models.Response;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Tools
+{
+    /// <summary>
+    /// Класс конвертор для преобразования сырых данных от сервера в модели и обратно
+    /// </summary>
+    public static class DataConverter
+    {
+        /// <summary>
+        /// Конвертация в модель
+        /// </summary>
+        /// <typeparam name="T">Type модели</typeparam>
+        /// <param name="rawData">Сырые данные от сервера</param>
+        /// <returns>Модель T типа</returns>
+        /// <exception cref="NotSupportedException">Переданый тип не поддерживается классом</exception>
+        public static T Convert<T>(object rawData)
+        {
+            if (rawData == null)
+            {
+                return default;
+            }
+            return typeof(T) switch
+            {
+                Type sensorType when sensorType == typeof(Sensors) =>
+                    (T)(object)ConvertToSensors(rawData as Response),
+
+                Type waterValueType when waterValueType == typeof(WaterValue) =>
+                    (T)(object)ConvertToWaterWalue(rawData as Response),
+
+                Type schedulesType when schedulesType == typeof(ObservableCollection<Schedule>) =>
+                    (T)(object)ConvertToSchedules(rawData as Response),
+
+                Type lastUpdateType when lastUpdateType == typeof(Plate) =>
+                    (T)(object)ConvertToPlate(rawData as Response),
+
+                _ => throw new NotSupportedException($"Unsupported type: {typeof(T)}")
+            };
+        }
+
+        /// <summary>
+        /// Конверт из модели в сырые данные для отправки к серверу
+        /// </summary>
+        /// <typeparam name="T">Type модели</typeparam>
+        /// <param name="model">Модель для обработки</param>
+        /// <returns>Сырые данные для отправки</returns>
+        /// <exception cref="NotSupportedException"></exception>
+        public static object ConvertBack<T>(T model)
+        {
+            return model switch
+            {
+                WaterValue waterValue => ConvertWaterValueBack(waterValue),
+
+                ObservableCollection<Schedule> schedules => ConvertSchedulesBack(schedules),
+
+                Plate plate => ConvertPlateBack(plate),
+
+                _ => throw new NotSupportedException($"Unsupported type: {typeof(T)}")
+            };
+        }
+
+
+
+        #region Sensors
+
+        private static object ConvertToSensors(Response response)
+        {
+            var feed = response?.Feeds?.FirstOrDefault();
+            if (feed == null) return default;
+
+            return new Sensors
+            {
+                Temperature = SafeParseDouble(feed.Field1),
+                AirHumidity = SafeParseDouble(feed.Field2),
+                SoilHumidity = SafeParseInt(feed.Field3),
+                LastUpdate = SafeConvertFromUtc(feed.CreatedAt)
+            };
+        }
+
+        #endregion
+
+        #region WaterValue
+
+        private static object ConvertToWaterWalue(Response? response)
+        {
+            var feed = response?.Feeds?.FirstOrDefault();
+            if (feed == null) return default;
+
+            return new WaterValue
+            {
+                State = SafeParseBool(feed.Field1)
+            };
+        }
+
+        private static string ConvertWaterValueBack(WaterValue waterValue)
+        {
+            if (waterValue.State)
+            {
+                return "1";
+            }
+            else
+            {
+                return "0";
+            }
+        }
+
+        #endregion
+
+        #region Schedules
+
+        private static object ConvertToSchedules(Response? response)
+        {
+            var feed = response?.Feeds?.FirstOrDefault();
+            if (feed == null) return default;
+
+            return new ObservableCollection<Schedule>
+            {
+                new Schedule
+                {
+                    StartTime = SafeParseFromIntSeconds(feed.Field1),
+                    EndTime = SafeParseFromIntSeconds(feed.Field1, feed.Field2),
+                    IsActive = AreBothNonNegative(feed.Field1, feed.Field2),
+                },
+
+                new Schedule
+                {
+                    StartTime = SafeParseFromIntSeconds(feed.Field3),
+                    EndTime = SafeParseFromIntSeconds(feed.Field3, feed.Field4),
+                    IsActive = AreBothNonNegative(feed.Field3, feed.Field4),
+                },
+
+                new Schedule
+                {
+                    StartTime = SafeParseFromIntSeconds(feed.Field5),
+                    EndTime = SafeParseFromIntSeconds(feed.Field5, feed.Field6),
+                    IsActive = AreBothNonNegative(feed.Field5, feed.Field6),
+                },
+
+                new Schedule
+                {
+                    StartTime = SafeParseFromIntSeconds(feed.Field7),
+                    EndTime = SafeParseFromIntSeconds(feed.Field7, feed.Field8),
+                    IsActive = AreBothNonNegative(feed.Field7, feed.Field8),
+                }
+            };
+        }
+
+        private static object ConvertSchedulesBack(ObservableCollection<Schedule> schedules)
+        {
+            if (schedules == null)
+                return Array.Empty<string>();
+
+            var result = new List<string>();
+
+            foreach (var schedule in schedules)
+            {
+                if (!schedule.IsActive)
+                {
+                    result.Add("-1");
+                    result.Add("-1");
+                }
+                else
+                {
+                    result.Add(GetTotalSecondsAsString(schedule.StartTime) ?? "-1");
+                    result.Add(GetTotalSecondsAsString(schedule.StartTime, schedule.EndTime) ?? "-1");
+                }
+            }
+
+            return result.ToArray();
+        }
+
+        #endregion
+
+        #region Plate status
+
+        private static object ConvertToPlate(Response? response)
+        {
+            var feed = response?.Feeds?.FirstOrDefault();
+            if (feed == null) return default;
+
+            return new Plate
+            {
+                State = SafeParseInt(feed.Field1),
+                LastUpdate = SafeConvertFromUtc(feed.CreatedAt)
+            };
+        }
+
+        private static object ConvertPlateBack(Plate plate)
+        {
+            return plate.State.ToString();
+        }
+
+        #endregion
+
+        // Вспомогательные методы
+        private static double SafeParseDouble(string value) =>
+            double.TryParse(
+                value,
+                NumberStyles.Any,
+                CultureInfo.InvariantCulture,
+                out var result
+            ) ? result : 0.0;
+
+        private static int SafeParseInt(string value) =>
+            int.TryParse(value, out var result) ? result : 0;
+
+        private static DateTime SafeConvertFromUtc(DateTime utcTime)
+        {
+            DateTime fallbackValue = DateTime.Now;
+            try
+            {
+                if (utcTime.Kind == DateTimeKind.Local)
+                    return utcTime; // Уже локальное время, преобразование не нужно
+
+                var localTimeZone = TimeZoneInfo.Local;
+                return TimeZoneInfo.ConvertTimeFromUtc(utcTime, localTimeZone);
+            }
+            catch (TimeZoneNotFoundException)
+            {
+                return fallbackValue;
+            }
+            catch (ArgumentException)
+            {
+                return fallbackValue;
+            }
+            catch (InvalidTimeZoneException)
+            {
+                return fallbackValue;
+            }
+        }
+
+        private static bool SafeParseBool(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return false; // или throw new ArgumentException("Value cannot be empty");
+
+            // Специальные числовые случаи
+            if (value == "0") return false;
+            if (value == "1") return true;
+
+            // Стандартный парсинг (True/False, true/false, 1/0 и т. д.)
+            if (bool.TryParse(value, out bool result))
+                return result;
+
+            return false;
+        }
+
+        private static TimeSpan SafeParseFromIntSeconds(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return TimeSpan.Zero;
+            }
+
+            if (int.TryParse(value, out int seconds) && seconds >= 0)
+            {
+                try
+                {
+                    return TimeSpan.FromSeconds(seconds);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    return TimeSpan.Zero;
+                }
+            }
+
+            return TimeSpan.Zero;
+        }
+
+        private static TimeSpan SafeParseFromIntSeconds(string startTimeInSeconds, string durationInSeconds)
+        {
+            if (!int.TryParse(startTimeInSeconds, out int startSeconds) || startSeconds < 0)
+            {
+                return TimeSpan.Zero;
+            }
+
+            if (!int.TryParse(durationInSeconds, out int durationSeconds) || durationSeconds < 0)
+            {
+                durationSeconds = 0;
+            }
+
+            try
+            {
+                TimeSpan startTime = TimeSpan.FromSeconds(startSeconds);
+                TimeSpan duration = TimeSpan.FromSeconds(durationSeconds);
+                TimeSpan endTime = startTime + duration;
+
+                if (endTime.TotalDays >= 1)
+                {
+                    endTime = endTime.Add(TimeSpan.FromDays(-(int)endTime.TotalDays));
+                }
+
+                return endTime;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return TimeSpan.Zero;
+            }
+        }
+
+        private static bool AreBothNonNegative(string firstNumberStr, string secondNumberStr)
+        {
+            // Пытаемся распарсить первое число
+            if (!int.TryParse(firstNumberStr, out int firstNumber))
+            {
+                // Если не получилось (не число), считаем его отрицательным для безопасности
+                return false;
+            }
+
+            // Пытаемся распарсить второе число
+            if (!int.TryParse(secondNumberStr, out int secondNumber))
+            {
+                // Если не получилось (не число), считаем его отрицательным для безопасности
+                return false;
+            }
+
+            // Возвращаем true, только если оба числа >= 0
+            return firstNumber >= 0 && secondNumber >= 0;
+        }
+
+        private static string GetTotalSecondsAsString(TimeSpan? timeSpan)
+        {
+            try
+            {
+                if (!timeSpan.HasValue)
+                    return "-1";
+
+                double totalSeconds = timeSpan.Value.TotalSeconds;
+
+                return totalSeconds.ToString();
+            }
+            catch
+            {
+                return "-1";
+            }
+        }
+
+        private static string GetTotalSecondsAsString(TimeSpan? startTime, TimeSpan? endTime)
+        {
+            try
+            {
+                if (!startTime.HasValue || !endTime.HasValue)
+                    return null;
+
+                TimeSpan difference = endTime.Value - startTime.Value;
+
+                return difference.TotalSeconds.ToString();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Tools/DataConverter.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/App.axaml.cs ===
+﻿using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Markup.Xaml;
+
+using CyberGreenHouse.ViewModels;
+using CyberGreenHouse.Views;
+
+namespace CyberGreenHouse;
+
+public partial class App : Application
+{
+    public override void Initialize()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
+
+    public override void OnFrameworkInitializationCompleted()
+    {
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            var vm = new MainViewModel();
+            desktop.MainWindow = new MainWindow { DataContext = vm };
+
+            // На десктопе меню всегда открыто
+            vm.IsMenuOpen = false;
+        }
+        else if (ApplicationLifetime is ISingleViewApplicationLifetime mobile)
+        {
+            var vm = new MainViewModel();
+            mobile.MainView = new MainView { DataContext = vm };
+
+            // На мобильных меню по умолчанию закрыто
+            vm.IsMenuOpen = false;
+        }
+
+        base.OnFrameworkInitializationCompleted();
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/App.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Converters/BoolToDoubleConverter.cs ===
+﻿using Avalonia.Data.Converters;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Converters
+{
+    public class BoolToDoubleConverter : IValueConverter
+    {
+        public double TrueValue { get; set; } = 1;
+        public double FalseValue { get; set; } = 0;
+
+        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+        {
+            return value is bool b && b ? TrueValue : FalseValue;
+        }
+
+        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Converters/BoolToDoubleConverter.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Converters/BoolToNegatedDoubleConverter.cs ===
+﻿using Avalonia.Data.Converters;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Converters
+{
+    public class BoolToNegatedDoubleConverter : IValueConverter
+    {
+        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+        {
+            if (value is bool isOpen && !isOpen &&
+                parameter is string paramStr &&
+                double.TryParse(paramStr, out double param))
+            {
+                return -param;
+            }
+            return 0;
+        }
+
+        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Converters/BoolToNegatedDoubleConverter.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Animators/PlacementAnimator.cs ===
+﻿using Avalonia.Animation;
+using Avalonia.Controls;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Animators
+{
+    public class PlacementAnimator : InterpolatingAnimator<PlacementMode>
+    {
+        public override PlacementMode Interpolate(double progress, PlacementMode oldValue, PlacementMode newValue)
+        {
+            return PlacementMode.Center;
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Animators/PlacementAnimator.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/MainView.axaml.cs ===
+﻿using Avalonia.Controls;
+using Avalonia.Input;
+using CyberGreenHouse.ViewModels;
+
+namespace CyberGreenHouse.Views;
+
+public partial class MainView : UserControl
+{
+    public MainView()
+    {
+        InitializeComponent();
+    }
+
+    private void Rectangle_PointerPressed(object? sender, Avalonia.Input.PointerPressedEventArgs e)
+    {
+        if (DataContext is MainViewModel vm)
+        {
+            vm.IsMenuOpen = false;
+        }
+        e.Handled = true;
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/MainView.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/MainWindow.axaml.cs ===
+﻿using Avalonia;
+using Avalonia.Controls;
+
+namespace CyberGreenHouse.Views;
+
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+        #if DEBUG
+        this.AttachDevTools();
+        #endif
+
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/MainWindow.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/MainWindow.axaml ===
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CyberGreenHouse.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:CyberGreenHouse.Views"
+        mc:Ignorable="d" d:DesignWidth="360" d:DesignHeight="713"
+		Width="360" Height="713"
+        x:Class="CyberGreenHouse.Views.MainWindow"
+        Icon="/Assets/Icon.ico"
+        Title="CyberGreenHouse">
+        <views:MainView />
+</Window>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/MainWindow.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/MainView.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CyberGreenHouse.ViewModels"
+             xmlns:views="clr-namespace:CyberGreenHouse.Views"
+             xmlns:converters="clr-namespace:CyberGreenHouse.Converters"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.MainView"
+             x:DataType="vm:MainViewModel"
+			 x:Name="rootView">
+
+  <Design.DataContext>
+    <vm:MainViewModel />
+  </Design.DataContext>
+
+  <UserControl.Resources>
+    <converters:BoolToNegatedDoubleConverter x:Key="MenuConverter"/>
+    <converters:BoolToDoubleConverter  x:Key="OpacityConverter" TrueValue="0.5" FalseValue="0"/>
+  </UserControl.Resources>
+
+  <Grid RowDefinitions="Auto,*">
+    <!-- Фиксированная шапка -->
+    <Border Grid.Row="0"  Height="50">
+      <DockPanel VerticalAlignment="Center" LastChildFill="True">
+        <Button Width="40" Height="40" Margin="5" Background="Transparent"
+                Command="{Binding ToggleMenuCommand}">
+          <PathIcon Data="M3,5H21V7H3V5M3,11H21V13H3V11M3,17H21V19H3V17Z"/>
+        </Button>
+        <TextBlock Text="{Binding Title}" HorizontalAlignment="Right"
+                  VerticalAlignment="Center" FontSize="16" Margin="20, 0"/>
+      </DockPanel>
+    </Border>
+
+    <!-- Основная область -->
+    <Grid Grid.Row="1">
+      <!-- Бургер-меню -->
+      <Border Width="250" Background="{DynamicResource BurgerBackground}"
+              HorizontalAlignment="Left"
+              RenderTransformOrigin="0,0.5"
+              ZIndex="2">
+        <Border.RenderTransform>
+          <TranslateTransform X="{Binding IsMenuOpen, 
+                                  Converter={StaticResource MenuConverter}, 
+                                  ConverterParameter=250}">
+            <TranslateTransform.Transitions>
+              <Transitions>
+                <DoubleTransition Property="X" Duration="0:0:0.3"/>
+              </Transitions>
+            </TranslateTransform.Transitions>
+          </TranslateTransform>
+        </Border.RenderTransform>
+        <views:BurgerMenu/>
+      </Border>
+
+      <!-- Контентная область -->
+      <Grid>
+		  <ContentControl Content="{Binding CurrentView}" Opacity="{Binding ContentOpacity}">
+			  <ContentControl.Transitions>
+				  <Transitions>
+					  <DoubleTransition Property="Opacity" Duration="0:0:0.5"/>
+				  </Transitions>
+			  </ContentControl.Transitions>
+		  </ContentControl>
+        
+        <!-- Затемнение -->
+	
+            <Rectangle Fill="#80000000"
+                       IsHitTestVisible="{Binding IsMenuOpen}"
+                       ZIndex="1"
+                       PointerPressed="Rectangle_PointerPressed"
+                       Opacity="{Binding IsMenuOpen, Converter={StaticResource OpacityConverter}}">
+                <Rectangle.Transitions>
+                    <Transitions>
+                        <DoubleTransition Property="Opacity" Duration="0:0:0.3"/>
+                    </Transitions>
+                </Rectangle.Transitions>
+            </Rectangle>
+	
+        </Grid>
+    </Grid>
+  </Grid>
+</UserControl>
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/MainView.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/BurgerMenu.axaml.cs ===
+using Avalonia.Controls;
+
+namespace CyberGreenHouse.Views
+{
+    public partial class BurgerMenu : UserControl
+    {
+        public BurgerMenu()
+        {
+            InitializeComponent();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/BurgerMenu.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/BurgerMenu.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.BurgerMenu">
+	<UserControl.Styles>
+		<Style Selector="Button.bgr-btn">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Padding" Value="15,10"/>
+			<Setter Property="Margin" Value="0"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Background" Value="Transparent"/>
+		</Style>
+	</UserControl.Styles>
+	<StackPanel>
+		<!-- Пункты меню -->
+		<Button 
+			Classes="bgr-btn"
+			Command="{Binding NavigateCommand}"
+			CommandParameter="HomeView"
+			Content="Главная"/>
+
+		<Button
+			Classes="bgr-btn"
+			Command="{Binding NavigateCommand}"
+			CommandParameter="ScheduleView"
+			Content="Расписание"/>
+
+		<Button
+			Classes="bgr-btn"
+			Command="{Binding NavigateCommand}"
+			CommandParameter="CalibrationView"
+			Content="Калибровка"/>
+
+		<Button 
+			Classes="bgr-btn"
+			Command="{Binding NavigateCommand}"
+			CommandParameter="SettingsView"
+			Content="Настройки"/>
+
+		<Button
+			Classes="bgr-btn"
+			Command="{Binding NavigateCommand}"
+			CommandParameter="AboutView"
+			Content="О программе"/>
+	</StackPanel>
+</UserControl>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/BurgerMenu.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/AboutView.axaml.cs ===
+using Avalonia.Controls;
+
+namespace CyberGreenHouse.Views.Pages
+{
+    public partial class AboutView : UserControl
+    {
+        public AboutView()
+        {
+            InitializeComponent();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/AboutView.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/DryStep.axaml.cs ===
+using Avalonia.Controls;
+
+namespace CyberGreenHouse.Views.Pages.Calibration
+{
+    public partial class DryStep : UserControl
+    {
+        public DryStep()
+        {
+            InitializeComponent();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/DryStep.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/FinishStep.axaml.cs ===
+using Avalonia.Controls;
+
+namespace CyberGreenHouse.Views.Pages.Calibration
+{
+    public partial class FinishStep : UserControl
+    {
+        public FinishStep()
+        {
+            InitializeComponent();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/FinishStep.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/DryStep.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.Calibration.DryStep">
+	<StackPanel DockPanel.Dock="Top"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Margin="20">
+
+		<Image Source="/Assets/dry-step.png"
+			   HorizontalAlignment="Center"
+			   Margin="0,0,0,20"/>
+
+		<ScrollViewer MaxHeight="300"
+					  MaxWidth="350"
+					  VerticalScrollBarVisibility="Auto"
+					  HorizontalScrollBarVisibility="Disabled">
+			<TextBlock Text="Вы перешли в режим калибровки датчиков. Ожидайте, сейчас на дисплее появится текст, как на изображении (обычно это занимает не больше минуты).
+
+После того как появится текст, просушите датчики влажности почвы и расположите их в сухом месте.
+
+Когда датчики будут подготовлены, нажмите кнопку «Далее» на экране телефона."
+					   TextWrapping="Wrap"
+					   TextAlignment="Center"/>
+		</ScrollViewer>
+	</StackPanel>
+</UserControl>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/DryStep.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/FinishStep.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.Calibration.FinishStep">
+	<StackPanel DockPanel.Dock="Top"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Margin="20">
+
+		<ScrollViewer MaxHeight="200"
+					  MaxWidth="350"
+					  VerticalScrollBarVisibility="Auto"
+					  HorizontalScrollBarVisibility="Disabled">
+			<TextBlock Text="Поздравляем! Вы завершили калибровку датчиков влажности почвы.  
+
+В течение 5 минут управление перейдёт в штатный режим, и можно будет использовать систему как обычно."
+					   TextWrapping="Wrap"
+					   TextAlignment="Center"/>
+		</ScrollViewer>
+	</StackPanel>
+</UserControl>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/FinishStep.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/WetStep.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="550"
+             x:Class="CyberGreenHouse.Views.Pages.Calibration.WetStep">
+	<StackPanel DockPanel.Dock="Top"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center"
+				Margin="20">
+		<Image Source="/Assets/wet-step.png"
+			   HorizontalAlignment="Center"
+			   Margin="0,0,0,20"/>
+
+		<ScrollViewer MaxHeight="300"
+					  MaxWidth="350"
+					  VerticalScrollBarVisibility="Auto"
+					  HorizontalScrollBarVisibility="Disabled">
+			<TextBlock Text="Это следущий этап калибровки, необходимо дождаться обновления текста на дисплее, пример нового текста на изображении.
+
+Когда текст обновиться, необходимо не спеша опустить все датчики в емкость с водой.
+
+На датчиках есть белая линия, датчики опускайте чтобы уровень воды не доходил до этой линии с запасом 3-4 мм.
+
+Не допускайте намокания датчика выше этой линии, в случаи еси такое произошло не замедлительно отключите от сети плату управления и датчик от платы, вновь просушите датчик и оставьте на 1-2 часа, после откройте приложение заново и возобновите процесс калибровки.
+
+В момент ожидания пропусши датчика не допускается использования платы управления в обычном режиме.
+
+После опускания в воду датчиков, не вынимая их из воды нажмите кнопку 'Далее' для завершения калибровки."
+					   TextWrapping="Wrap"
+					   TextAlignment="Center"/>
+		</ScrollViewer>
+	</StackPanel>
+</UserControl>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/WetStep.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/WetStep.axaml.cs ===
+using Avalonia.Controls;
+
+namespace CyberGreenHouse.Views.Pages.Calibration
+{
+    public partial class WetStep : UserControl
+    {
+        public WetStep()
+        {
+            InitializeComponent();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/Calibration/WetStep.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/CalibrationView.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="750"
+             x:Class="CyberGreenHouse.Views.Pages.CalibrationView">
+	<Grid Margin="10">
+		<DockPanel IsVisible="{Binding IsVisibleWizard}"
+					Background="{DynamicResource MainBackground}"
+					IsHitTestVisible="True"
+					ZIndex="1">
+			<ProgressBar DockPanel.Dock="Top" Value="{Binding CurrentStep}" Maximum="3" Margin="0,0,0,10"/>
+
+			<StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+
+				<Button Content="Далее"
+						IsEnabled="{Binding IsEnableButton}"
+						Command="{Binding NextCommand}"
+						Padding="10 5"/>
+			</StackPanel>
+			<ContentControl Content="{Binding CurrentStepView}"/>
+
+		</DockPanel>
+		<StackPanel Spacing="20" ZIndex="0">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Text="Последняя калибровка: " />
+				<TextBlock Text="{Binding Plate.LastUpdate}" Grid.Column="1" HorizontalAlignment="Right"/>
+			</Grid>
+			<Button Content="Калибровка" 
+					HorizontalAlignment="Stretch" 
+					HorizontalContentAlignment="Center"
+					Command="{Binding StartCalibrationCommand}"/>
+		</StackPanel>
+	</Grid>
+
+</UserControl>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/CalibrationView.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/SettingsView.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.SettingsView">
+	<Grid RowDefinitions="*,Auto">
+		<!-- Основная область настроек -->
+		<ScrollViewer Grid.Row="0" Margin="0,0,0,10">
+			<StackPanel Spacing="15" Margin="20,10">
+				<!-- Заголовок настроек -->
+				<TextBlock Text="Настройки приложения" FontSize="18" FontWeight="Bold"/>
+
+				<!-- Раздел внешнего вида -->
+				<StackPanel Spacing="8">
+					<TextBlock Text="Внешний вид" FontSize="14" FontWeight="SemiBold"/>
+
+					<!-- Настройка темы в формате "имя слева - значение справа" -->
+					<Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
+						<TextBlock Text="Тема:" VerticalAlignment="Center"/>
+						<ComboBox Grid.Column="1"
+                                 SelectedIndex="{Binding SelectedThemeIndex}"
+                                 MinWidth="150" HorizontalAlignment="Right">
+							<ComboBoxItem Content="Системная"/>
+							<ComboBoxItem Content="Светлая"/>
+							<ComboBoxItem Content="Тёмная"/>
+						</ComboBox>
+					</Grid>
+
+					<!-- Другие настройки могут быть добавлены в том же формате -->
+
+				</StackPanel>
+			</StackPanel>
+		</ScrollViewer>
+
+		<!-- Панель кнопок внизу -->
+		<Border Grid.Row="1" 
+                BorderBrush="{DynamicResource ThemeBorderBrush}" BorderThickness="0,1,0,0"
+                Padding="10" HorizontalAlignment="Stretch">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Content="Сохранить" Command="{Binding SaveCommand}"/>
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/SettingsView.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/ScheduleView.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:anims="clr-namespace:CyberGreenHouse.Animators"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.ScheduleView"
+			 x:Name="_thisView">
+	<UserControl.Styles>
+		<Style Selector="TimePicker.short ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Padding" Value="3"/>
+		</Style>
+		<Style Selector="TimePicker.short Button#PART_FlyoutButton">
+
+			<Setter Property="MinWidth" Value="0"/>
+		</Style>		
+		<Style Selector="TimePicker.short TextBlock">
+			<Setter Property="Padding" Value="2,5"/>
+		</Style>
+		<Style Selector="TimePicker.short Popup#PART_Popup">
+			<Setter Property="PlacementTarget" Value="{Binding #_thisView}"/>
+			<Style.Animations>
+				<Animation Duration="0:0:1" IterationCount="INFINITE">
+					<KeyFrame Cue="0%">
+						<Setter Property="VerticalOffset" Value="0"/>
+						<Setter Property="HorizontalOffset" Value="0"/>
+						<Setter Property="Placement" Value="Center">
+							<Animation.Animator>
+								<anims:PlacementAnimator/>
+							</Animation.Animator>
+						</Setter>
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="VerticalOffset" Value="0"/>
+						<Setter Property="HorizontalOffset" Value="0"/>
+						<Setter Property="Placement" Value="Center">
+							<Animation.Animator>
+								<anims:PlacementAnimator/>
+							</Animation.Animator>
+						</Setter>
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+		<Style Selector="ToggleButton">
+			<Setter Property="Content" Value="Выключено"/>
+			<Setter Property="Background" Value="Red"/>
+		</Style>
+		<Style Selector="ToggleButton:checked">
+			<Setter Property="Content" Value="Активно"/>
+			<Setter Property="Background" Value="Green"/>
+		</Style>
+
+		<Style Selector="ToggleButton:checked > ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="Green"/>
+		</Style>
+		
+	</UserControl.Styles>
+	<ItemsControl ItemsSource="{Binding Schedules}" Margin="5">
+		<ItemsControl.ItemTemplate>
+			<DataTemplate>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="0.1*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<StackPanel Orientation="Vertical" Margin="5" Spacing="5">
+						<TextBox Text="{Binding SomeTextProperty}"/>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="0.5*"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<TimePicker Grid.Column="0" HorizontalAlignment="Stretch"
+									   SelectedTime="{Binding StartTime}" Classes="short"/>
+							<TextBlock Grid.Column="1" Text="-" FontSize="36" HorizontalAlignment="Center"/>
+							<TimePicker Grid.Column="2" HorizontalAlignment="Stretch"
+									   SelectedTime="{Binding EndTime}" Classes="short"/>
+						</Grid>
+					</StackPanel>
+					<Grid Grid.Column="2" VerticalAlignment="Top">
+						<ToggleButton 
+				   		    IsChecked="{Binding IsActive}"
+						    HorizontalContentAlignment="Center"
+						    HorizontalAlignment="Stretch"/>
+					</Grid>
+				</Grid>
+			</DataTemplate>
+		</ItemsControl.ItemTemplate>
+	</ItemsControl>
+</UserControl>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/ScheduleView.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/HomeView.axaml.cs ===
+using Avalonia.Controls;
+using CyberGreenHouse.ViewModels.PageViewModels;
+using System.Diagnostics;
+
+namespace CyberGreenHouse.Views.Pages
+{
+    public partial class HomeView : UserControl
+    {
+        public HomeView()
+        {
+            InitializeComponent();
+            DataContext = new HomeViewModel();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/HomeView.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/ScheduleView.axaml.cs ===
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
+using Avalonia.Controls.Templates;
+using Avalonia.Data;
+using Avalonia.Data.Converters;
+using Avalonia.VisualTree;
+using CyberGreenHouse.ViewModels.PageViewModels;
+using System.Diagnostics;
+using System.Linq;
+
+namespace CyberGreenHouse.Views.Pages
+{
+    public partial class ScheduleView : UserControl
+    {
+        public ScheduleView()
+        {
+            InitializeComponent();
+            DataContext = new ScheduleViewModel();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/ScheduleView.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/SettingsView.axaml.cs ===
+using Avalonia.Controls;
+using CyberGreenHouse.ViewModels.PageViewModels;
+
+namespace CyberGreenHouse.Views.Pages
+{
+    public partial class SettingsView : UserControl
+    {
+        public SettingsView()
+        {
+            InitializeComponent();
+            DataContext = new SettingsViewModel();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/SettingsView.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/AboutView.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.AboutView">
+	<TextBlock Text="Приложение для управления и мониторинга системы мини-метеостанции с расписанием полива на базе ESP32.
+	Только для личного использования." 
+			   TextWrapping="WrapWithOverflow"/>
+</UserControl>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/AboutView.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/HomeView.axaml ===
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:CyberGreenHouse.ViewModels.PageViewModels"
+			 xmlns:cv="clr-namespace:CyberGreenHouse.Converters"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CyberGreenHouse.Views.Pages.HomeView">
+	<Design.DataContext>
+		<vm:HomeViewModel />
+	</Design.DataContext>
+	<StackPanel Margin="5">
+		<Grid Margin="5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+
+			<TextBlock Grid.Row="0" Grid.Column="0" Text="Температура:" Margin="5"/>
+			<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SensorData.Temperature}" Margin="5"/>
+
+			<TextBlock Grid.Row="1" Grid.Column="0" Text="Влажность воздуха:" Margin="5"/>
+			<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SensorData.AirHumidity}" Margin="5"/>
+
+			<TextBlock Grid.Row="2" Grid.Column="0" Text="Влажность почвы:" Margin="5"/>
+			<TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SensorData.SoilHumidity}" Margin="5"/>
+		</Grid>
+
+		<TextBlock Text="{Binding SensorData.LastUpdate, StringFormat='Обновлено: {0:dd.MM.yyyy HH:mm:ss}'}"
+                   FontSize="12" Opacity="0.7" Margin="10"/>
+
+		<Grid Margin="5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Text="Кран:" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+
+			<ToggleSwitch HorizontalAlignment="Right"
+						  IsChecked="{Binding WaterValueData.State}"
+						  OffContent="Закрыт"
+						  OnContent="Открыт"
+						  IsEnabled="{Binding IsEnableButton}"
+						  Command="{Binding SwitchWaterValueCommand}"
+						  CommandParameter="{Binding WaterValueData}" />
+		</Grid>
+	</StackPanel>
+</UserControl>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/HomeView.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/CalibrationView.axaml.cs ===
+using Avalonia.Controls;
+using CyberGreenHouse.ViewModels.PageViewModels;
+
+namespace CyberGreenHouse.Views.Pages
+{
+    public partial class CalibrationView : UserControl
+    {
+        public CalibrationView()
+        {
+            InitializeComponent();
+            DataContext = new CalibrationViewModel();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Views/Pages/CalibrationView.axaml.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/CyberGreenHouse.csproj ===
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.2.8" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.8" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.8" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.2.8" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.2.8" />
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.2.7.3" />
+    <PackageReference Include="DynamicData" Version="9.2.2" />
+    <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/CyberGreenHouse.csproj ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Sensors.cs ===
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Models
+{
+    public class Sensors
+    {
+        public double Temperature { get; set; }
+        public double AirHumidity { get; set; }
+        public int SoilHumidity { get; set; }
+        public DateTime LastUpdate { get; set; }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Sensors.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Plate.cs ===
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Models
+{
+    public class Plate
+    {
+        public int State { get; set; } = 0;
+        public DateTime LastUpdate { get; set; }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Plate.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/ErrorTypes.cs ===
+﻿namespace CyberGreenHouse.Models.Response
+{
+    public enum ErrorTypes
+    {
+        None,
+        NoInternet,
+        ServerError,
+        Timeout,
+        BadRequest,
+        InvalidJson,
+        InvalidUrl,
+        Unknown
+    }
+}
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/ErrorTypes.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/DataResult.cs ===
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Models.Response
+{
+    public class DataResult<T>
+    {
+        public T? Data { get; set; }
+        public ErrorTypes ErrorType { get; set; }
+        public string? ErrorMessage { get; set; } = string.Empty;
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/DataResult.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/Response.cs ===
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Models.Response
+{
+    public class Response
+    {
+        public Channel Channel { get; set; } = new Channel();
+        public List<Feed> Feeds { get; set; } = new List<Feed>();
+
+        public override string ToString() => Channel.Name;
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/Response.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/Feed.cs ===
+﻿using System;
+using Newtonsoft.Json;
+
+namespace CyberGreenHouse.Models.Response
+{
+    public class Feed
+    {
+        [JsonProperty("created_at")]
+        public DateTime CreatedAt { get; set; }
+        public int EntryId { get; set; }
+        public string Field1 { get; set; } = "undefined";
+        public string Field2 { get; set; } = "undefined";
+        public string Field3 { get; set; } = "undefined";
+        public string Field4 { get; set; } = "undefined";
+        public string Field5 { get; set; } = "undefined";
+        public string Field6 { get; set; } = "undefined";
+        public string Field7 { get; set; } = "undefined";
+        public string Field8 { get; set; } = "undefined";
+    }
+}
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/Feed.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/Channel.cs ===
+﻿using System.Text.Json.Serialization;
+using System;
+
+namespace CyberGreenHouse.Models.Response
+{
+    public class Channel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "undefined";
+        public string Latitude { get; set; } = "undefined";
+        public string Longitude { get; set; } = "undefined";
+        public string Field1 { get; set; } = "undefined"; // Название поля 1 (Temp)
+        public string Field2 { get; set; } = "undefined"; // Название поля 2 (Humd)
+        public string Field3 { get; set; } = "undefined"; // Название поля 3 (Humd почва)
+
+        [JsonPropertyName("created_at")]
+        public string CreatedAtString { get; set; } = "undefined";
+
+        [JsonPropertyName("updated_at")]
+        public string UpdatedAtString { get; set; } = "undefined";
+
+        public int LastEntryId { get; set; }
+
+        [JsonIgnore]
+        public DateTime CreatedAt => DateTime.Parse(CreatedAtString);
+
+        [JsonIgnore]
+        public DateTime UpdatedAt => DateTime.Parse(UpdatedAtString);
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+}
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Response/Channel.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Schedule.cs ===
+﻿using ReactiveUI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Models
+{
+    public class Schedule : ReactiveObject
+    {
+        private string _someTextProperty;
+        private TimeSpan? _startTime;
+        private TimeSpan? _endTime;
+        private bool _isActive;
+        private static int _count = 0;
+
+        public string SomeTextProperty
+        {
+            get => _someTextProperty;
+            set => this.RaiseAndSetIfChanged(ref _someTextProperty, value);
+        }
+
+        public TimeSpan? StartTime
+        {
+            get => _startTime;
+            set => this.RaiseAndSetIfChanged(ref _startTime, value);
+        }
+
+        public TimeSpan? EndTime
+        {
+            get => _endTime;
+            set => this.RaiseAndSetIfChanged(ref _endTime, value);
+        }
+
+        public bool IsActive
+        {
+            get => _isActive;
+            set => this.RaiseAndSetIfChanged(ref _isActive, value);
+        }
+
+        public Schedule()
+        {
+            _count++;
+            SomeTextProperty = $"Расписание #" + _count;
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/Schedule.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/WaterValue.cs ===
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.Models
+{
+    public class WaterValue
+    {
+        public bool State { get; set; }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/Models/WaterValue.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/PageViewModels/HomeViewModel.cs ===
+﻿using Avalonia.Threading;
+using CyberGreenHouse.Models;
+using CyberGreenHouse.Models.Response;
+using CyberGreenHouse.Tools;
+using MsBox.Avalonia;
+using ReactiveUI;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Reactive;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.ViewModels.PageViewModels
+{
+    public class HomeViewModel : ViewModelBase
+    {
+        private Sensors? _sensorData;
+        private DispatcherTimer? _timer;
+        private WaterValue _waterValueData;
+        private bool _isEnableButton = true;
+
+        public Sensors? SensorData
+        {
+            get => _sensorData;
+            set => this.RaiseAndSetIfChanged(ref _sensorData, value);
+        }
+
+        public WaterValue WaterValueData
+        {
+            get => _waterValueData;
+            set => this.RaiseAndSetIfChanged(ref _waterValueData, value);
+        }
+
+        public bool IsEnableButton
+        {
+            get => _isEnableButton;
+            set => this.RaiseAndSetIfChanged(ref _isEnableButton, value);
+        }
+
+        public ReactiveCommand<WaterValue, Unit> SwitchWaterValueCommand { get; }
+
+
+
+        public HomeViewModel()
+        {
+            LoadData(); //PreLoad
+
+            SwitchWaterValueCommand = ReactiveCommand.CreateFromTask<WaterValue>(SwitchWaterValue);
+
+            _timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(5)
+            };
+            _timer.Tick += async (sender, e) =>
+            {
+                await LoadData();
+            };
+            _timer.Start();
+        }
+
+        private async Task SwitchWaterValue(WaterValue arg)
+        {
+            IsEnableButton = false;
+            string state = (string)DataConverter.ConvertBack<WaterValue>(arg);
+            await DataService.SetWaterValue(state);
+            await RunAfterDelay(15000, () =>
+            {
+                IsEnableButton = true;
+            });
+        }
+
+        private async Task LoadData()
+        {
+            await LoadSensorDataAsync();
+            await LoadValue();
+        }
+
+        private async Task LoadSensorDataAsync()
+        {
+            var result = await DataService.GetSensorData();
+
+            if (result.ErrorMessage != string.Empty)
+            {
+                if (result.ErrorMessage != string.Empty)
+                {
+                    var errorBox = MessageBoxManager.GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
+                    await errorBox.ShowAsync();
+                }
+            }
+            else
+            {
+                SensorData = DataConverter.Convert<Sensors>(result.Data);
+            }
+        }
+
+        private async Task LoadValue()
+        {
+            var result = await DataService.GetValueState();
+
+            if (result.ErrorMessage != string.Empty)
+            {
+                if (result.ErrorMessage != string.Empty)
+                {
+                    var errorBox = MessageBoxManager.GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
+                    await errorBox.ShowAsync();
+                }
+            }
+            else
+            {
+                WaterValueData = DataConverter.Convert<WaterValue>(result.Data);
+            }
+        }
+
+        /// <summary>
+        /// Выполняет действие с задержкой (без async/await).
+        /// </summary>
+        /// <param name="delayMs">Задержка в миллисекундах.</param>
+        /// <param name="action">Действие для выполнения.</param>
+        private static async Task RunAfterDelay(int delayMs, Action action)
+        {
+            await Task.Delay(delayMs);
+            action();
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/PageViewModels/HomeViewModel.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/PageViewModels/SettingsViewModel.cs ===
+﻿using Avalonia;
+using Avalonia.Styling;
+using ReactiveUI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reactive;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.ViewModels.PageViewModels
+{
+    public class SettingsViewModel : ViewModelBase
+    {
+        // Текущая выбранная тема
+        private int _selectedThemeIndex;
+        public int SelectedThemeIndex
+        {
+            get => _selectedThemeIndex;
+            set
+            {
+                ApplyTheme();
+                this.RaiseAndSetIfChanged(ref _selectedThemeIndex, value);
+            }
+        }
+
+        // Команды
+        public ReactiveCommand<Unit, Unit> SaveCommand { get; }
+        public ReactiveCommand<Unit, Unit> CancelCommand { get; }
+
+        public SettingsViewModel()
+        {
+            // Инициализация текущей темы
+            InitializeTheme();
+
+            // Инициализация команд
+            SaveCommand = ReactiveCommand.Create(SaveSettings);
+        }
+
+        private void InitializeTheme()
+        {
+            if (Application.Current is null) return;
+
+            // Определяем текущую тему приложения
+            var currentTheme = Application.Current.RequestedThemeVariant;
+            SelectedThemeIndex = currentTheme switch
+            {
+                { Key: not null } when currentTheme == ThemeVariant.Light => 1,
+                { Key: not null } when currentTheme == ThemeVariant.Dark => 2,
+                _ => 0 // По умолчанию или системная
+            };
+        }
+
+        private void SaveSettings()
+        {
+            if (Application.Current is null) return;
+
+            // Применяем выбранную тему
+            var newTheme = SelectedThemeIndex switch
+            {
+                1 => ThemeVariant.Light,
+                2 => ThemeVariant.Dark,
+                _ => ThemeVariant.Default
+            };
+
+            Application.Current.RequestedThemeVariant = newTheme;
+
+            // Здесь можно добавить сохранение других настроек
+
+        }
+
+        // Метод для применения темы (можно вызывать при изменении SelectedThemeIndex)
+        public void ApplyTheme()
+        {
+            if (Application.Current is null) return;
+
+            var theme = SelectedThemeIndex switch
+            {
+                1 => ThemeVariant.Light,
+                2 => ThemeVariant.Dark,
+                _ => ThemeVariant.Default
+            };
+
+            Application.Current.RequestedThemeVariant = theme;
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/PageViewModels/SettingsViewModel.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/PageViewModels/ScheduleViewModel.cs ===
+﻿using CyberGreenHouse.Models;
+using CyberGreenHouse.Tools;
+using DynamicData.Binding;
+using DynamicData;
+using ReactiveUI;
+using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
+using System.Reactive.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MsBox.Avalonia;
+
+namespace CyberGreenHouse.ViewModels.PageViewModels
+{
+    public class ScheduleViewModel : ViewModelBase
+    {
+        private ObservableCollection<Schedule> _schedules = new ObservableCollection<Schedule>();
+        private bool canUpdate = false;
+
+        public ObservableCollection<Schedule> Schedules
+        {
+            get => _schedules;
+            set => this.RaiseAndSetIfChanged(ref _schedules, value);
+        }
+
+
+
+        public ScheduleViewModel()
+        {
+            LoadData();
+
+        }
+
+        private async void LoadData()
+        {
+            var result = await DataService.GetSchedule();
+
+            if (result.ErrorMessage != string.Empty)
+            {
+                if (result.ErrorMessage != string.Empty)
+                {
+                    var errorBox = MessageBoxManager.GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
+                    await errorBox.ShowAsync();
+                }
+            }
+            else
+            {
+                Schedules = DataConverter.Convert<ObservableCollection<Schedule>>(result.Data);
+
+                foreach (var item in Schedules)
+                {
+                    SubscribeToItemChanges(item);
+                }
+
+                canUpdate = true;
+            }
+        }
+
+        private void SubscribeToItemChanges(Schedule item)
+        {
+            item.WhenAnyValue(x => x.StartTime)
+                .Subscribe(x => UpdateSchedulesOnServer());
+
+            item.WhenAnyValue(x => x.EndTime)
+                .Subscribe(x => UpdateSchedulesOnServer());
+
+            item.WhenAnyValue(x => x.IsActive)
+                .Subscribe(x => UpdateSchedulesOnServer());
+        }
+
+        private async void UpdateSchedulesOnServer()
+        {
+            if (canUpdate)
+            {
+                object data = DataConverter.ConvertBack<ObservableCollection<Schedule>>(Schedules);
+                var result = await DataService.SetSchedules((string[])data);
+                if (result.ErrorMessage != string.Empty)
+                {
+                    var errorBox = MessageBoxManager.GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
+                    await errorBox.ShowAsync();
+                }
+            }
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/PageViewModels/ScheduleViewModel.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/PageViewModels/CalibrationViewModel.cs ===
+﻿using Avalonia.Controls;
+using CyberGreenHouse.Models;
+using CyberGreenHouse.Tools;
+using CyberGreenHouse.Views.Pages.Calibration;
+using MsBox.Avalonia;
+using MsBox.Avalonia.Models;
+using ReactiveUI;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Reactive;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace CyberGreenHouse.ViewModels.PageViewModels
+{
+    public class CalibrationViewModel : ViewModelBase
+    {
+        private Plate _plate;
+        private bool _isVisibleWizard = false;
+        private int _currentStep = 0;
+        private UserControl _currentStepView;
+        private bool _isEnableButton = false;
+
+
+        private string _confirmText = "Вы уверены, что хотите начать калибровку?\n\n" +
+            "Это очень важный процесс занимающий около 15 минут, этой процедуре необходимо уделить должное внимания для коректно работы всего комплекса.\n" +
+            "Калибровка это настройка датчиков влажности почвы, для того чтобы привести их показания к единому значению и более точных измерений.\n" +
+            "Производит настройку стоит только в случаях замены датчиков или при высоких погрешнастях во влажности почвы.";
+
+        public UserControl CurrentStepView
+        {
+            get => _currentStepView;
+            set => this.RaiseAndSetIfChanged(ref _currentStepView, value);
+        }
+
+        public Plate Plate
+        {
+            get => _plate;
+            set => this.RaiseAndSetIfChanged(ref _plate, value);
+        }
+
+        public bool IsVisibleWizard
+        {
+            get => _isVisibleWizard;
+            set => this.RaiseAndSetIfChanged(ref _isVisibleWizard, value);
+        }
+
+        public int CurrentStep
+        {
+            get => _currentStep;
+            set => this.RaiseAndSetIfChanged(ref _currentStep, value);
+        }
+
+        public bool IsEnableButton
+        {
+            get => _isEnableButton;
+            set => this.RaiseAndSetIfChanged(ref _isEnableButton, value);
+        }
+
+        ReactiveCommand<Unit, Unit> StartCalibrationCommand { get; }
+        ReactiveCommand<Unit, Unit> NextCommand { get; }
+
+        public CalibrationViewModel()
+        {
+            StartCalibrationCommand = ReactiveCommand.Create(StartCalibration);
+            NextCommand = ReactiveCommand.Create(NextStep);
+
+            LoadData();
+        }
+
+        private async void StartCalibration()
+        {
+            Plate.State = 0;
+            var confirmBox = MessageBoxManager.GetMessageBoxCustom(
+                new MsBox.Avalonia.Dto.MessageBoxCustomParams
+                {
+                    ButtonDefinitions = new List<ButtonDefinition>
+                    {
+                        new ButtonDefinition
+                        {
+                            Name = "Да",
+                            IsDefault = true,
+                            IsCancel = false
+                        },
+                        new ButtonDefinition
+                        {
+                            Name = "Нет",
+                            IsDefault = false,
+                            IsCancel = true
+                        }
+                    },
+                    ContentTitle = "Потверждение",
+                    ContentMessage = _confirmText,
+                    Icon = MsBox.Avalonia.Enums.Icon.Warning
+                });
+
+            if (await confirmBox.ShowAsync() == "Да")
+            {
+                IsEnableButton = false;
+                Plate.State++;
+                var rawState = DataConverter.ConvertBack<Plate>(Plate);
+                var result = await DataService.SetPlateState((string)rawState);
+                if (result.ErrorMessage != string.Empty)
+                {
+                    var errorBox = MessageBoxManager.GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
+                    await errorBox.ShowAsync();
+                }
+                CurrentStepView = new DryStep();
+                IsVisibleWizard = true;
+                CurrentStep = 1;
+                await RunAfterDelay(15000, () =>
+                {
+                    IsEnableButton = true;
+                });
+            }
+        }
+
+        private async void NextStep()
+        {
+            IsEnableButton = false;
+            CurrentStep++;
+            string rawState;
+            switch (CurrentStep)
+            {
+                case 2:
+                    Plate.State++;
+                    CurrentStepView = new WetStep();
+                    break;
+                case 3:
+                    Plate.State = 0;
+                    CurrentStepView = new FinishStep();
+                    break;
+                case 4:
+                    IsVisibleWizard = false;
+                    LoadData();
+                    break;
+            }
+            rawState = (string)DataConverter.ConvertBack<Plate>(Plate);
+            var result = await DataService.SetPlateState(rawState);
+            if (result.ErrorMessage != string.Empty)
+            {
+                var errorBox = MessageBoxManager.GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
+                await errorBox.ShowAsync();
+            }
+            await RunAfterDelay(15000, () =>
+            {
+                IsEnableButton = true;
+            });
+        }
+
+        private async void LoadData()
+        {
+            var result = await DataService.GetPlateStatus();
+
+            if (result.ErrorMessage != string.Empty)
+            {
+                var errorBox = MessageBoxManager.GetMessageBoxStandard("Ошибка", result.ErrorMessage, MsBox.Avalonia.Enums.ButtonEnum.Ok, MsBox.Avalonia.Enums.Icon.Error);
+                await errorBox.ShowAsync();
+            }
+            else
+            {
+                Plate = DataConverter.Convert<Plate>(result.Data);
+            }
+        }
+
+        /// <summary>
+        /// Выполняет действие с задержкой
+        /// </summary>
+        /// <param name="delayMs">Задержка в миллисекундах.</param>
+        /// <param name="action">Действие для выполнения.</param>
+        private static async Task RunAfterDelay(int delayMs, Action action)
+        {
+            await Task.Delay(delayMs);
+            action(); 
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/PageViewModels/CalibrationViewModel.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/MainViewModel.cs ===
+﻿using Avalonia.Controls;
+using Avalonia.Controls.Templates;
+using Avalonia.Threading;
+using CyberGreenHouse.Models;
+using CyberGreenHouse.Tools;
+using CyberGreenHouse.Views;
+using CyberGreenHouse.Views.Pages;
+using ReactiveUI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reactive;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+
+namespace CyberGreenHouse.ViewModels
+{
+    public class MainViewModel : ReactiveObject
+    {
+        #region Privates
+        private UserControl _currentView;
+        private List<UserControl> _pages;
+        private bool _isMenuOpen = true;
+        private double _contentOpacity = 1.0;
+        private string _title = "Главная";
+        #endregion Privates
+
+        #region Publics
+        public UserControl CurrentView
+        {
+            get => _currentView;
+            set => this.RaiseAndSetIfChanged(ref _currentView, value);
+        }
+
+        public bool IsMenuOpen
+        {
+            get => _isMenuOpen;
+            set => this.RaiseAndSetIfChanged(ref _isMenuOpen, value);
+        }
+
+        public double ContentOpacity
+        {
+            get => _contentOpacity;
+            set => this.RaiseAndSetIfChanged(ref _contentOpacity, value);
+        }
+
+        public string Title
+        {
+            get => _title;
+            set => this.RaiseAndSetIfChanged(ref _title, value);
+        }
+
+        public List<UserControl> Pages
+        {
+            get => _pages;
+            set => this.RaiseAndSetIfChanged(ref _pages, value);
+        }
+        #endregion Publics
+
+        public ReactiveCommand<Unit, Unit> ToggleMenuCommand { get; }
+        public ReactiveCommand<string, Unit> NavigateCommand { get; }
+
+        public MainViewModel()
+        {
+            // Инициализация команд
+            ToggleMenuCommand = ReactiveCommand.Create(ToggleMenu);
+            NavigateCommand = ReactiveCommand.CreateFromTask<string>(Navigate);
+            Pages = new List<UserControl>();
+            Pages.AddRange(
+            [
+                new HomeView(),
+                new AboutView(),
+                new CalibrationView(),
+                new SettingsView(),
+                new ScheduleView(),
+            ]);
+
+            CurrentView = Pages.FirstOrDefault(view => view is HomeView);
+        }
+
+        private void ToggleMenu()
+        {
+            IsMenuOpen = !IsMenuOpen;
+        }
+
+        private async Task Navigate(string viewName)
+        {
+            ContentOpacity = 0.2;
+            await Task.Delay(500);
+            switch (viewName)
+            {
+                case "HomeView":
+                    CurrentView = Pages.FirstOrDefault(view => view is HomeView);
+                    Title = "Главная";
+                    break;
+                case "ScheduleView":
+                    CurrentView = Pages.FirstOrDefault(view => view is ScheduleView);
+                    Title = "Расписание";
+                    break;
+                case "CalibrationView":
+                    CurrentView = Pages.FirstOrDefault(view => view is CalibrationView);
+                    Title = "Калибровка";
+                    break;
+                case "SettingsView":
+                    CurrentView = Pages.FirstOrDefault(view => view is SettingsView);
+                    Title = "Настройки";
+                    break;
+                case "AboutView":
+                    CurrentView = Pages.FirstOrDefault(view => view is AboutView);
+                    Title = "О программе";
+                    break;
+            }
+            IsMenuOpen = false;
+            ContentOpacity = 1.0;
+        }
+    }
+}
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/MainViewModel.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/ViewModelBase.cs ===
+﻿using CyberGreenHouse.Tools;
+using ReactiveUI;
+
+namespace CyberGreenHouse.ViewModels;
+
+public class ViewModelBase : ReactiveObject
+{
+    private DataService? _dataService;
+
+    protected DataService DataService
+    {
+        get
+        {
+            if (_dataService == null)
+            {
+                _dataService = new DataService();
+            }
+            return _dataService;
+        }
+    }
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/ViewModels/ViewModelBase.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/App.axaml ===
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="CyberGreenHouse.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.ThemeDictionaries>
+				<!-- Light Theme Resources -->
+				<ResourceDictionary x:Key="Light">
+					<SolidColorBrush x:Key="BurgerBackground" Color="LightGray"/>
+					<SolidColorBrush x:Key="MainBackground" Color="White"/>
+				</ResourceDictionary>
+
+				<!-- Dark Theme Resources -->
+				<ResourceDictionary x:Key="Dark">
+					<SolidColorBrush x:Key="BurgerBackground" Color="Gray"/>
+					<SolidColorBrush x:Key="MainBackground" Color="Black"/>
+				</ResourceDictionary>
+			</ResourceDictionary.ThemeDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+
+	<Application.Styles>
+        <FluentTheme  />
+    </Application.Styles>
+</Application>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse/App.axaml ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/.gitignore ===
+## Ignore Visual Studio temporary files, build results, and
+## files generated by popular Visual Studio add-ons.
+##
+## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Tye
+.tye/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Chutzpah Test files
+_Chutzpah*
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Visual Studio Trace Files
+*.e2e
+
+# TFS 2012 Local Workspace
+$tf/
+
+# Guidance Automation Toolkit
+*.gpState
+
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# TeamCity is a build add-in
+_TeamCity*
+
+# DotCover is a Code Coverage Tool
+*.dotCover
+
+# AxoCover is a Code Coverage Tool
+.axoCover/*
+!.axoCover/settings.json
+
+# Coverlet is a free, cross platform Code Coverage Tool
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# MightyMoose
+*.mm.*
+AutoTest.Net/
+
+# Web workbench (sass)
+.sass-cache/
+
+# Installshield output folder
+[Ee]xpress/
+
+# DocProject is a documentation generator add-in
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
+
+# Click-Once directory
+publish/
+
+# Publish Web Output
+*.[Pp]ublish.xml
+*.azurePubxml
+# Note: Comment the next line if you want to checkin your web deploy settings,
+# but database connection strings (with potential passwords) will be unencrypted
+*.pubxml
+*.publishproj
+
+# Microsoft Azure Web App publish settings. Comment the next line if you want to
+# checkin your Azure Web App publish settings, but sensitive information contained
+# in these scripts will be unencrypted
+PublishScripts/
+
+# NuGet Packages
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# Microsoft Azure Emulator
+ecf/
+rcf/
+
+# Windows Store app package directories and files
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!?*.[Cc]ache/
+
+# Others
+ClientBin/
+~$*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+orleans.codegen.cs
+
+# Including strong name files can present a security risk
+# (https://github.com/github/gitignore/pull/2483#issue-259490424)
+#*.snk
+
+# Since there are multiple workflows, uncomment next line to ignore bower_components
+# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+#bower_components/
+
+# RIA/Silverlight projects
+Generated_Code/
+
+# Backup & report files from converting an old project file
+# to a newer Visual Studio version. Backup files are not needed,
+# because we have git ;-)
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+ServiceFabricBackup/
+*.rptproj.bak
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Business Intelligence projects
+*.rdl.data
+*.bim.layout
+*.bim_*.settings
+*.rptproj.rsuser
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
+
+# Microsoft Fakes
+FakesAssemblies/
+
+# GhostDoc plugin setting file
+*.GhostDoc.xml
+
+# Node.js Tools for Visual Studio
+.ntvs_analysis.dat
+node_modules/
+
+# Visual Studio 6 build log
+*.plg
+
+# Visual Studio 6 workspace options file
+*.opt
+
+# Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
+*.vbw
+
+# Visual Studio LightSwitch build output
+**/*.HTMLClient/GeneratedArtifacts
+**/*.DesktopClient/GeneratedArtifacts
+**/*.DesktopClient/ModelManifest.xml
+**/*.Server/GeneratedArtifacts
+**/*.Server/ModelManifest.xml
+_Pvt_Extensions
+
+# Paket dependency manager
+.paket/paket.exe
+paket-files/
+
+# FAKE - F# Make
+.fake/
+
+# CodeRush personal settings
+.cr/personal
+
+# Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+# Cake - Uncomment if you are using it
+# tools/**
+# !tools/packages.config
+
+# Tabs Studio
+*.tss
+
+# Telerik's JustMock configuration file
+*.jmconfig
+
+# BizTalk build output
+*.btp.cs
+*.btm.cs
+*.odx.cs
+*.xsd.cs
+
+# OpenCover UI analysis results
+OpenCover/
+
+# Azure Stream Analytics local run output
+ASALocalRun/
+
+# MSBuild Binary and Structured Log
+*.binlog
+
+# NVidia Nsight GPU debugger configuration file
+*.nvuser
+
+# MFractors (Xamarin productivity tool) working folder
+.mfractor/
+
+# Local History for Visual Studio
+.localhistory/
+
+# BeatPulse healthcheck temp database
+healthchecksdb
+
+# Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
+
+# Fody - auto-generated XML schema
+FodyWeavers.xsd
+
+##
+## Visual studio for Mac
+##
+
+
+# globs
+Makefile.in
+*.userprefs
+*.usertasks
+config.make
+config.status
+aclocal.m4
+install-sh
+autom4te.cache/
+*.tar.gz
+tarballs/
+test-results/
+
+# Mac bundle stuff
+*.dmg
+*.app
+
+# content below from: https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# content below from: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+##
+## Visual Studio Code
+##
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/.gitignore ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/structure.txt ===
+│   │   │   │   │   │   │   │   └── CyberGreenHouse
+└── Directory.Build.props
+├── CyberGreenHouse.Android
+│   └── Resources
+│   │   └── drawable
+│   │   │   └── Icon.png
+│   │   │   ├── splash_screen.xml
+│   │   └── values-night
+│   │   │   └── colors.xml
+│   │   └── values
+│   │   │   └── styles.xml
+│   │   │   ├── colors.xml
+│   └── MainActivity.cs
+│   ├── Properties
+│   │   └── AndroidManifest.xml
+│   └── CyberGreenHouse.Android.csproj
+└── EspPlate
+│   └── .gitignore
+│   ├── platformio.ini
+│   ├── src
+│   │   └── main.cpp
+│   └── include
+│   │   └── README
+│   └── wokwi.toml
+│   ├── diagram.json
+│   ├── lib
+│   │   └── README
+│   └── .vscode
+│   │   └── extensions.json
+│   └── test
+│   │   └── README
+└── CyberGreenHouse
+│   └── Tools
+│   │   └── DataService.cs
+│   │   ├── RelayCommand.cs
+│   │   ├── DataConverter.cs
+│   └── Assets
+│   │   └── Icon.ico
+│   │   ├── wet-step.png
+│   │   ├── dry-step.png
+│   └── App.axaml.cs
+│   ├── Converters
+│   │   └── BoolToDoubleConverter.cs
+│   │   ├── BoolToNegatedDoubleConverter.cs
+│   └── Animators
+│   │   └── PlacementAnimator.cs
+│   └── Views
+│   │   └── MainView.axaml.cs
+│   │   ├── MainWindow.axaml.cs
+│   │   ├── MainWindow.axaml
+│   │   ├── MainView.axaml
+│   │   ├── BurgerMenu.axaml.cs
+│   │   ├── BurgerMenu.axaml
+│   │   ├── Pages
+│   │   │   └── AboutView.axaml.cs
+│   │   │   ├── Calibration
+│   │   │   │   └── DryStep.axaml.cs
+│   │   │   │   ├── FinishStep.axaml.cs
+│   │   │   │   ├── DryStep.axaml
+│   │   │   │   ├── FinishStep.axaml
+│   │   │   │   ├── WetStep.axaml
+│   │   │   │   ├── WetStep.axaml.cs
+│   │   │   └── CalibrationView.axaml
+│   │   │   ├── SettingsView.axaml
+│   │   │   ├── ScheduleView.axaml
+│   │   │   ├── HomeView.axaml.cs
+│   │   │   ├── ScheduleView.axaml.cs
+│   │   │   ├── SettingsView.axaml.cs
+│   │   │   ├── AboutView.axaml
+│   │   │   ├── HomeView.axaml
+│   │   │   ├── CalibrationView.axaml.cs
+│   └── CyberGreenHouse.csproj
+│   ├── Models
+│   │   └── Sensors.cs
+│   │   ├── Plate.cs
+│   │   ├── Response
+│   │   │   └── ErrorTypes.cs
+│   │   │   ├── DataResult.cs
+│   │   │   ├── Response.cs
+│   │   │   ├── Feed.cs
+│   │   │   ├── Channel.cs
+│   │   └── Schedule.cs
+│   │   ├── WaterValue.cs
+│   └── ViewModels
+│   │   └── PageViewModels
+│   │   │   └── HomeViewModel.cs
+│   │   │   ├── SettingsViewModel.cs
+│   │   │   ├── ScheduleViewModel.cs
+│   │   │   ├── CalibrationViewModel.cs
+│   │   └── MainViewModel.cs
+│   │   ├── ViewModelBase.cs
+│   └── App.axaml
+└── .gitignore
+├── structure.txt
+├── CyberGreenHouse.Desktop
+│   └── app.manifest
+│   ├── Program.cs
+│   ├── CyberGreenHouse.Desktop.csproj
+└── .gitattributes
+├── CyberGreenHouse.sln
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/structure.txt ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/combined_files.txt ===
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/combined_files.txt ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Desktop/app.manifest ===
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <!-- This manifest is used on Windows only.
+       Don't remove it as it might cause problems with window transparency and embeded controls.
+       For more details visit https://learn.microsoft.com/en-us/windows/win32/sbscs/application-manifests -->
+  <assemblyIdentity version="1.0.0.0" name="AvaloniaTest.Desktop"/>
+
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of the Windows versions that this application has been tested on
+           and is designed to work with. Uncomment the appropriate elements
+           and Windows will automatically select the most compatible environment. -->
+
+      <!-- Windows 10 -->
+      <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />
+    </application>
+  </compatibility>
+</assembly>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Desktop/app.manifest ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Desktop/Program.cs ===
+﻿using System;
+
+using Avalonia;
+using Avalonia.ReactiveUI;
+
+namespace CyberGreenHouse.Desktop;
+
+class Program
+{
+    // Initialization code. Don't use any Avalonia, third-party APIs or any
+    // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
+    // yet and stuff might break.
+    [STAThread]
+    public static void Main(string[] args) => BuildAvaloniaApp()
+        .StartWithClassicDesktopLifetime(args);
+
+    // Avalonia configuration, don't remove; also used by visual designer.
+    public static AppBuilder BuildAvaloniaApp()
+        => AppBuilder.Configure<App>()
+            .UsePlatformDetect()
+            .WithInterFont()
+            .LogToTrace()
+            .UseReactiveUI();
+}
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Desktop/Program.cs ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Desktop/CyberGreenHouse.Desktop.csproj ===
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!--If you are willing to use Windows/MacOS native APIs you will need to create 3 projects.
+    One for Windows with net8.0-windows TFM, one for MacOS with net8.0-macos and one with net8.0 TFM for Linux.-->
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="11.2.8" />
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.2.7.3" />
+    <PackageReference Include="DynamicData" Version="9.2.2" />
+    <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CyberGreenHouse\CyberGreenHouse.csproj" />
+  </ItemGroup>
+</Project>
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.Desktop/CyberGreenHouse.Desktop.csproj ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/.gitattributes ===
+###############################################################################
+# Set default behavior to automatically normalize line endings.
+###############################################################################
+* text=auto
+
+###############################################################################
+# Set default behavior for command prompt diff.
+#
+# This is need for earlier builds of msysgit that does not have it on by
+# default for csharp files.
+# Note: This is only used by command line
+###############################################################################
+#*.cs     diff=csharp
+
+###############################################################################
+# Set the merge driver for project and solution files
+#
+# Merging from the command prompt will add diff markers to the files if there
+# are conflicts (Merging from VS is not affected by the settings below, in VS
+# the diff markers are never inserted). Diff markers may cause the following 
+# file extensions to fail to load in VS. An alternative would be to treat
+# these files as binary and thus will always conflict and require user
+# intervention with every merge. To do so, just uncomment the entries below
+###############################################################################
+#*.sln       merge=binary
+#*.csproj    merge=binary
+#*.vbproj    merge=binary
+#*.vcxproj   merge=binary
+#*.vcproj    merge=binary
+#*.dbproj    merge=binary
+#*.fsproj    merge=binary
+#*.lsproj    merge=binary
+#*.wixproj   merge=binary
+#*.modelproj merge=binary
+#*.sqlproj   merge=binary
+#*.wwaproj   merge=binary
+
+###############################################################################
+# behavior for image files
+#
+# image files are treated as binary by default.
+###############################################################################
+#*.jpg   binary
+#*.png   binary
+#*.gif   binary
+
+###############################################################################
+# diff behavior for common document formats
+# 
+# Convert binary document formats to text before diffing them. This feature
+# is only available from the command line. Turn it on by uncommenting the 
+# entries below.
+###############################################################################
+#*.doc   diff=astextplain
+#*.DOC   diff=astextplain
+#*.docx  diff=astextplain
+#*.DOCX  diff=astextplain
+#*.dot   diff=astextplain
+#*.DOT   diff=astextplain
+#*.pdf   diff=astextplain
+#*.PDF   diff=astextplain
+#*.rtf   diff=astextplain
+#*.RTF   diff=astextplain
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/.gitattributes ===
+
+=== START OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.sln ===
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberGreenHouse", "CyberGreenHouse\CyberGreenHouse.csproj", "{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberGreenHouse.Android", "CyberGreenHouse.Android\CyberGreenHouse.Android.csproj", "{7EE86642-1F2E-42A5-8B29-BDF61044A399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberGreenHouse.Desktop", "CyberGreenHouse.Desktop\CyberGreenHouse.Desktop.csproj", "{EF338CBB-DAF6-4133-B294-E60CC2B2F790}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC83048-B419-4A6E-9AEC-64BAD5F994C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE86642-1F2E-42A5-8B29-BDF61044A399}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EF338CBB-DAF6-4133-B294-E60CC2B2F790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF338CBB-DAF6-4133-B294-E60CC2B2F790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF338CBB-DAF6-4133-B294-E60CC2B2F790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF338CBB-DAF6-4133-B294-E60CC2B2F790}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
+
+=== END OF FILE: /data/data/com.termux/files/home/storage/shared/CyberGreenHouse/CyberGreenHouse.sln ===
+
